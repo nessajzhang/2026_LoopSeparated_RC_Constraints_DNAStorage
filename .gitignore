@@ -1,0 +1,28 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+venv/
+build/
+output/
+*.o
+*.out
+smc_regime_grid_fast
+
+# Generated experiment products
+*.csv
+*.pdf
+*.png
+*.svg
+*.tif
+*.tiff
+
+# Manuscript and submission material
+*.tex
+*.bib
+*.bst
+*.cls
+*.aux
+*.log
+*.zip
+
