@@ -1,0 +1,12 @@
+{
+  "status": "CROSS_VALIDATED",
+  "stem_reduction_word_parameter_comparisons": 56380,
+  "avoiding_words_with_orbit_cover_checked": 91679,
+  "full_reduced_decomposed_count_cells": 187,
+  "paired_bruteforce_dynamic_cells": 32,
+  "notes": [
+    "All comparisons use exact integer counts.",
+    "The original all-stem definition is evaluated independently.",
+    "The paired dynamic program does not enumerate full words."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "status": "GENERATED_FROM_FROZEN_AUDIT_TABLES",
+  "backend": "Python/matplotlib",
+  "dimensions_mm": [
+    178.0,
+    132.0
+  ],
+  "exports": {
+    ".svg": "cbe00ff330628633ea77d97647e1f4c1b1b3a9cf7dd3de826cec7ed23c106f49",
+    ".pdf": "51225c5fbe78f8ea3b357471e6fe35146b79e0d513b0dd4264856c2182784a42",
+    ".tiff": "379eb06358823c4f18a81f1c266db39c4d450fb5b7c753a34676ef7457bc460d",
+    ".png": "e3a8d603ae7f732e28870177f363cc9d2f60ef83ef96e1050b01081c29af790a"
+  },
+  "inputs": {
+    "output/segmented_encoder_ultrascale_rates.csv": "ba833960fa5301966018719ff9f827be8a5887afe330464eb9c3d5f4de196799",
+    "output/paired_dna_m2_cpp_rates_r5000.csv": "7502431e0e8181369a6bb1110cdf515d12e4079bfcd566a6a0bd024ff48eea79",
+    "output/general_m_structured_asymptotic.csv": "69cdb20698840eec2f97be0d881e86f00cd8274b8aebc08e294d509815a08eca",
+    "output/general_m_exact_finite_rates.csv": "f78217f62f68f8b41c00c9ddb54f5100d7a771e9c9af73a8bb3bcd2e30cce898",
+    "output/segmented_encoder_ultrascale_summary.json": "4f16f887956c77e52da1ae1d8532be681556dad57ddf8c9f8c041dc41a90c2f0",
+    "output/general_m_stress_audit_summary.json": "cde7464716809fcdcbc01328a2e282052598f504e38f9eff8f93eb89e896023e",
+    "output/dna_m2_spectral_certificate_summary.json": "1b9d33498583d32f7f30f71ccc27f5eb4b10cd0662025ce91abd38c5c66de0aa"
+  },
+  "checks": {
+    "m_asymptotic_max": 1024,
+    "m_exact_finite_max": 128,
+    "alpha_exact_finite_values": [
+      0.5,
+      0.55,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      0.95,
+      0.99
+    ],
+    "n_exact_finite_values": [
+      1000,
+      10000
+    ],
+    "exact_finite_cells": 217,
+    "n_encoder_max": 1000000,
+    "r_paired_max": 5000,
+    "panel_a_alpha_domain": [
+      0.5,
+      1.0
+    ],
+    "open_interval_plotted": false,
+    "m_gt_2_global_optimality_claimed": false,
+    "smoothing_or_manual_deletion": false
+  }
+}

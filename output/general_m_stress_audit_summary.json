@@ -1,0 +1,81 @@
+{
+  "status": "CROSS_VALIDATED",
+  "m_values": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64,
+    96,
+    128,
+    192,
+    256,
+    384,
+    512,
+    768,
+    1024
+  ],
+  "m_max": 1024,
+  "alpha_values": [
+    0.5,
+    0.55,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "asymptotic_cells": 168,
+  "constructed_words_checked": 168,
+  "maximum_constructed_n": 1000000,
+  "complete_reduced_scans": 65,
+  "sampled_cross_endpoint_pairs": 840000,
+  "exact_finite_rate_cells": 217,
+  "exact_finite_m_values": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64,
+    96,
+    128
+  ],
+  "exact_finite_alpha_values": [
+    0.5,
+    0.55,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "exact_finite_lengths": [
+    1000,
+    10000
+  ],
+  "seed": 20260712,
+  "evidence_boundary": "The structured construction gives certified lower bounds for every reported m. It is not a global maximization of Lambda for m>2.",
+  "sha256": {
+    "general_m_structured_asymptotic.csv": "69cdb20698840eec2f97be0d881e86f00cd8274b8aebc08e294d509815a08eca",
+    "general_m_constructed_word_validation.csv": "28db412e7d70c52c52368fca9ac4e70c99068a51fdb195fb993276073e042f40",
+    "general_m_exact_finite_rates.csv": "f78217f62f68f8b41c00c9ddb54f5100d7a771e9c9af73a8bb3bcd2e30cce898"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "mode": "quick",
+  "jobs": 5,
+  "threads": 4,
+  "words": 47521,
+  "stem_cells": 285126,
+  "word_parameter_cells": 2566134,
+  "avoiding_parameter_cells": 2128224,
+  "orbit_cover_cells": 2128224,
+  "exact_gap_equalities": 285126,
+  "atomic_assertions": 9449189,
+  "failures": 0,
+  "digest_xor": 15353426768535211613,
+  "elapsed_seconds": 2.851168,
+  "first_failure": "",
+  "evidence_boundary": "Exhaustive finite-word agreement can expose counterexamples but does not replace the universal proof."
+}

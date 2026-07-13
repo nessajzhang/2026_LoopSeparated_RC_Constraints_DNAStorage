@@ -26,3 +26,12 @@ smc_regime_grid_fast
 *.log
 *.zip
 
+# Retain audited frozen tables and machine-readable summaries.
+!output/
+!output/**/*.csv
+!output/**/*.csv.gz
+!output/**/*.json
+!output/**/*.tsv.gz
+!figures/
+!figures/source_data/
+!figures/source_data/*.json

@@ -1,0 +1,61 @@
+{
+  "status": "CROSS_VALIDATED",
+  "cpp_rows": 114,
+  "python_exact_rows": 9,
+  "python_exact_checks": [
+    {
+      "r": 0,
+      "exact_integer_bit_length": 5,
+      "abs_log2_error": 0.0
+    },
+    {
+      "r": 1,
+      "exact_integer_bit_length": 8,
+      "abs_log2_error": 0.0
+    },
+    {
+      "r": 2,
+      "exact_integer_bit_length": 12,
+      "abs_log2_error": 0.0
+    },
+    {
+      "r": 3,
+      "exact_integer_bit_length": 16,
+      "abs_log2_error": 0.0
+    },
+    {
+      "r": 4,
+      "exact_integer_bit_length": 20,
+      "abs_log2_error": 0.0
+    },
+    {
+      "r": 5,
+      "exact_integer_bit_length": 23,
+      "abs_log2_error": 0.0
+    },
+    {
+      "r": 8,
+      "exact_integer_bit_length": 34,
+      "abs_log2_error": 0.0
+    },
+    {
+      "r": 10,
+      "exact_integer_bit_length": 40,
+      "abs_log2_error": 0.0
+    },
+    {
+      "r": 12,
+      "exact_integer_bit_length": 47,
+      "abs_log2_error": 0.0
+    }
+  ],
+  "max_abs_log2_error": 0.0,
+  "final_r": 5000,
+  "final_states": 447936,
+  "final_normalized_excess": 0.0036210057619954707,
+  "notes": [
+    "C++ uses a packed seen-mask state and long-double weights.",
+    "Python uses tuple/frozenset states and exact integer weights.",
+    "The asymptotic value comes from the independently certified subset spectrum."
+  ]
+}

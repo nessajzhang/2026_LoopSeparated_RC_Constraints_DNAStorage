@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "checks": {
+    "status_pass": true,
+    "mode_extended": true,
+    "job_count": true,
+    "word_total": true,
+    "stem_cell_total": true,
+    "parameter_cell_total": true,
+    "reduction_equalities_complete": true,
+    "orbit_cover_complete": true,
+    "zero_failures": true,
+    "old_full_csv_byte_identical": true,
+    "quick_ubsan_csv_byte_identical": true,
+    "binary_swap_extended_shape": true,
+    "binary_identity_extended_shape": true,
+    "ternary_fixed_point_extended_shape": true,
+    "dna_watson_crick_extended_shape": true,
+    "quaternary_identity_extended_shape": true
+  },
+  "expected": {
+    "words": 71891833,
+    "stem_cells": 1274921118,
+    "word_parameter_cells": 26371574082
+  },
+  "observed": {
+    "avoiding_parameter_cells": 22895603485,
+    "orbit_cover_cells": 22895603485,
+    "atomic_assertions": 125613903490,
+    "digest_xor": 8971443366104186886,
+    "elapsed_seconds": 9825.638059
+  },
+  "sha256": {
+    "code/full_word_definition_audit.cpp": "8c7c80a79ee55aa305fcc91b5f8718288cbc835de88fde2811b9a0eaaa746d67",
+    "output/full_word_definition_audit_extended_10t_summary.json": "0ad6d6858c99069f49f819e670f210757b7a504cc7c448e9d99b39a62d6fbc1f",
+    "output/full_word_definition_audit_extended_10t_jobs.csv": "be575e852f09228ab6385394b5cb36e6ba3b8b40610819772466d0c0ba13a0d7",
+    "output/full_word_definition_audit_optimized_full_jobs.csv": "5cbc657c07b11c6e588d2a423c2e55a73046f6d89c194532a5dfbc20f7783626",
+    "output/full_word_definition_audit_ubsan_current_jobs.csv": "92507bafab4ee439758138b6a28c568ac1ba995f9491a03a659d5c9f6e602c68"
+  },
+  "evidence_boundary": "This validates frozen totals, regressions, and file identity. Exhaustive finite computations support but do not replace the proof."
+}

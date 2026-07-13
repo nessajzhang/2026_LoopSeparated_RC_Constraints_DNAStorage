@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "seeds": [
+    20260712,
+    20260713,
+    20260717,
+    314159265,
+    271828182
+  ],
+  "seed_count": 5,
+  "cases_per_seed": 2000000000,
+  "threads_by_seed": {
+    "20260712": 14,
+    "20260713": 14,
+    "20260717": 10,
+    "314159265": 10,
+    "271828182": 10
+  },
+  "total_cases": 10000000000,
+  "total_passed": 10000000000,
+  "total_valid_cases": 8048935432,
+  "total_invalid_cases_with_witness": 1951064568,
+  "total_atomic_assertions": 259980895342,
+  "total_tight_pair_cases": 281449266,
+  "total_tight_self_cases": 331108852,
+  "total_elapsed_seconds": 2780.95698,
+  "m_min": 1,
+  "m_max": 8192,
+  "m_value_count": 27,
+  "maximum_start_positions": 10000000,
+  "start_domain_count": 18,
+  "schedule_count": 16,
+  "case_mode_count": 12,
+  "source_sha256": {
+    "summary_seed_20260712.json": "e1475a92f24bd9dc98af9f178636aecd655a5b70fe92f257e7479ea41d2b70e7",
+    "strata_seed_20260712.csv": "7596a61cafa667bf61b4972c1bd6533a53457f27e5ef1799aeb39d3ebb3cec76",
+    "summary_seed_20260713.json": "6c149fbc46115f7a1a027118b66c63dff9ccc498e5556f25f1996c864e6dfc55",
+    "strata_seed_20260713.csv": "2971fed98eef15e7b4d3011f5784f857eccd59c33fa2abd7a6d6f1a260dfb9fe",
+    "summary_seed_20260717.json": "226f68109da90166334578b500a90b07b2b492f59641ebf6ca694c726ae05a10",
+    "strata_seed_20260717.csv": "84cc6df9a0e99820f32770f71d7d08b301188a3bfa0e913cba3bc29b5bbebb13",
+    "summary_seed_314159265.json": "56f10306fc6ef17d01262fcef3724b6c8191ad52e1bd82c663d91ac3a1123f0c",
+    "strata_seed_314159265.csv": "b6e556231048e0a6f033018c7cc98bb546ff8267dfc835b98084a2723c5652ab",
+    "summary_seed_271828182.json": "2dc3ff32678be30b3ce60e16365873380821020e1a34ac9bd56beb6abc8d698d",
+    "strata_seed_271828182.csv": "7f0cfbf2e12411f5997c8eac0711b6a295445b3bfe20c4835c3056ab8cdcbbf9"
+  },
+  "evidence_boundary": "The campaign repeatedly stress-tests the occurrence-position lemma. It is not a capacity computation and does not replace proof."
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "implementation": "independent_python",
+  "cases": 500000,
+  "valid_cases": 401197,
+  "invalid_cases_with_witness": 98803,
+  "atomic_assertions": 2607921,
+  "seed": 20260713,
+  "case_stream_sha256": "8e57df533a7322a68f7dd57c6f409d795254fc738b25a05de65869b3713cdcb1",
+  "m_min": 1,
+  "m_max": 8192,
+  "maximum_start_positions": 10000000,
+  "evidence_boundary": "This implementation uses a separate RNG and extrema formulation. It cross-checks the geometric property, not capacity."
+}

@@ -1,68 +1,104 @@
-# Loop-separated reverse-complement constraints
+# Loop-separated reverse-complement constraints: reproducibility code
 
-This repository contains computational tools for studying DNA words subject to loop-separated reverse-complement constraints. It is a code-only distribution; generated figures and experiment outputs are intentionally excluded.
+This code-only package contains no manuscript source, author biography,
+affiliation, correspondence address, or unpublished prose. It reproduces the
+proof-supporting computations for loop-separated reverse-complement constraints.
 
-## Contents
+The current audited implementation is organized under `code/`,
+`loop_alpha_audit/`, `tests/`, and `output/`. The `analysis_tools/` directory
+retains the earlier finite-length, SMC, and folding-screen workflows so that
+previous numerical artifacts remain reproducible.
 
-- `analysis_tools/exact_counts.py`: exact finite-length enumeration for small parameters.
-- `analysis_tools/validate_enumerator.py`: independent brute-force checks of the enumerator.
-- `analysis_tools/smc_regime_grid_fast.cpp`: multithreaded sequential Monte Carlo estimator for large block lengths.
-- `analysis_tools/run_fixedk_smc_audit.sh`: reproducible fixed-threshold SMC sweep, including self-generated exact/SMC calibration data.
-- `analysis_tools/folding_grid.py` and `analysis_tools/folding_validation.py`: seeded sequence generation and ViennaRNA evaluation.
-- `analysis_tools/folding_statistical_tests.py`: statistical comparisons for folding outputs.
-- `analysis_tools/plot_*.py`: figure-generation utilities.
-- `analysis_tools/check_*_sanity.py`: finite checks of combinatorial and matrix calculations.
+## Environment
 
-Generated CSV files and figures are intentionally not versioned. Reproduction
-scripts write them under `output/` from the checked-in source code.
+- Python 3.12
+- `uv sync`
+- A C++20 compiler with POSIX threads
 
-## Requirements
-
-- Python 3.9 or newer.
-- A C++17 compiler with thread support.
-- Bash for the full fixed-threshold audit.
-
-Install the Python plotting and statistical dependencies with
-`python3 -m pip install -r analysis_tools/requirements.txt`. The optional
-ViennaRNA pipeline additionally uses
-`analysis_tools/requirements_folding.txt`.
-
-## Quick checks
-
-Run the exact-count validator:
+## Routine validation
 
 ```bash
-cd analysis_tools
-python3 validate_enumerator.py
-python3 check_loop_separated_proof_sanity.py
-python3 check_capacity_baseline_empirical.py
-python3 check_matrix_growth_sanity.py
+uv sync
+uv run pytest -q
+uv run ruff check code loop_alpha_audit tests
+uv run ruff format --check code loop_alpha_audit tests
 ```
 
-Compile a small SMC run:
+## Exact and finite-block computations
 
 ```bash
-c++ -O3 -std=c++17 -pthread analysis_tools/smc_regime_grid_fast.cpp -o /tmp/smc_regime_grid_fast
-/tmp/smc_regime_grid_fast \
-  --m 2 --n-values 100,500,1000 --regimes fixed --fixed-k 5 \
-  --particles 1000 --reps 2 --jobs 2 --seed 20260708 \
-  --out-dir /tmp/smc_example
+uv run python code/run_exhaustive_consistency_audit.py
+uv run python code/certify_dna_m2_spectral.py
+
+clang++ -std=c++20 -O3 -DNDEBUG -Wall -Wextra -pedantic \
+  code/paired_count_dna_m2.cpp -o output/paired_count_dna_m2
+output/paired_count_dna_m2 output/paired_dna_m2_cpp_rates_r5000.csv 5000
+uv run python code/check_paired_cpp_against_python.py \
+  output/paired_dna_m2_cpp_rates_r5000.csv \
+  output/paired_cpp_python_crosscheck_r5000.json
+
+clang++ -std=c++20 -O3 -DNDEBUG -Wall -Wextra -pedantic \
+  code/full_word_definition_audit.cpp -o output/full_word_definition_audit
+output/full_word_definition_audit --extended --threads 10 \
+  --summary output/full_word_definition_audit_extended_10t_summary.json \
+  --csv output/full_word_definition_audit_extended_10t_jobs.csv
 ```
 
-All scripts expose their input and output options through `--help`.
+The extended profile enumerates actual words rather than occurrence sets. It
+checks every available stem threshold and every finite loop threshold for the
+specified binary, ternary, and quaternary jobs.
 
-Run the complete fixed-threshold SMC and calibration workflow with:
+## Broad parameter and encoder computations
+
+```bash
+uv run python code/run_segmented_encoder_ultrascale.py
+uv run python code/run_general_m_stress_audit.py
+uv run python code/run_mkn_orbit_stress.py
+uv run python code/make_scaling_evidence_figure.py
+```
+
+## Ancillary SMC and folding workflows
+
+The earlier large-block SMC, finite-length plotting, and ViennaRNA screen are
+retained under `analysis_tools/`. Their additional dependencies are listed in
+`analysis_tools/requirements.txt` and
+`analysis_tools/requirements_folding.txt`. The fixed-threshold SMC workflow is
+started with:
 
 ```bash
 bash analysis_tools/run_fixedk_smc_audit.sh
 ```
 
-This is a compute-intensive reproduction run. It creates all intermediate
-tables and the six-panel audit figure under `output/fixedk_smc_audit`; no
-pre-generated data are required.
+These scripts accept explicit seeds and write generated products under
+`output/`.
 
-## Reproducibility notes
+## Optional long occurrence-position campaign
 
-All stochastic programs accept an explicit seed. Large SMC estimates should be inspected at replicate level; a finite particle population can collapse when the constraint becomes too restrictive. Folding calculations depend on the ViennaRNA version and parameter set reported in the generated tables.
+The following command is intentionally expensive. It stress-tests the geometric
+interval lemma; it is not a capacity computation.
 
-No software license is granted at this stage.
+```bash
+CASES_PER_SEED=2000000000 THREADS=10 \
+  bash code/run_long_orbit_campaign.sh \
+  20260712 20260713 20260717 314159265 271828182
+uv run python code/aggregate_long_orbit_campaign.py
+```
+
+## Evidence levels
+
+- The DNA `m=2` spectral maximum is an exact rational/symbolic certificate over
+  all 65,536 subsets.
+- The paired endpoint language is propagated completely through `r=5000` and
+  cross-checked against an exact-integer Python implementation.
+- The broad-`m` construction audit includes 217 exact finite-length cells over
+  15 stem thresholds through `m=128`, eight linear-threshold ratios, and two
+  block lengths; certified asymptotic cells extend through `m=1024`.
+- General-`m` tables are certified structured lower bounds. For `m>2`, they are
+  not global computations of the spectral maximum.
+- The large `(m,k,n)` rows and occurrence-position campaign stress proof
+  geometry. They are not uniform language samples and not capacity estimates.
+- Numerical checks can reveal implementation or indexing errors but do not
+  replace the universal proofs.
+
+All retained outputs have deterministic parameters or seeds. `MANIFEST.sha256`
+records the public code, tests, and frozen machine-readable artifacts.

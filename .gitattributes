@@ -1,0 +1,5 @@
+# Frozen audit tables use their producer's exact byte representation.
+output/*.csv binary
+output/**/*.csv binary
+output/*.gz binary
+output/**/*.gz binary

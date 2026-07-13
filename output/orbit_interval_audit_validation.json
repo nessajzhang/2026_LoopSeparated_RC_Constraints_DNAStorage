@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "cpp_cases": 6000000,
+  "python_cases": 500000,
+  "combined_property_cases": 6500000,
+  "cpp_atomic_assertions": 155238121,
+  "python_atomic_assertions": 2607921,
+  "nonempty_cpp_strata": 93312,
+  "tight_pair_bound_attained": true,
+  "tight_self_bound_attained": true,
+  "sha256": {
+    "orbit_interval_million_audit_summary.json": "4051a89fcb68b5ce8bef6df8973b583b1909fee715ee2b92d8baf7873a61a15f",
+    "orbit_interval_million_audit_strata.csv": "c1def97fc934c8ed8523d395691e45fa30a59d449ce3c21733dc5b5837ca020c",
+    "orbit_interval_python_crosscheck_summary.json": "5622862ee6fc6accf1e09a5653d642f52edc8e9e6f388bf869ae867edd8ec6e5"
+  },
+  "evidence_boundary": "The C++ and Python audits validate the occurrence-position geometry. They do not replace the proof or estimate constrained-language capacity."
+}

@@ -1,0 +1,41 @@
+{
+  "status": "CROSS_VALIDATED",
+  "m_values": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    12,
+    16,
+    24,
+    32
+  ],
+  "n_values": [
+    1000,
+    10000,
+    100000
+  ],
+  "schedules": [
+    "fixed4",
+    "linear_0.10",
+    "linear_0.50",
+    "linear_0.90",
+    "n_0.60",
+    "n_0.75",
+    "n_log_n",
+    "near_vacuous",
+    "sqrt",
+    "zero"
+  ],
+  "replicates": 2,
+  "cells": 580,
+  "maximum_k": 99998,
+  "maximum_observed_intervals": 76,
+  "maximum_marked_fraction": 1.0,
+  "seed": 20260712,
+  "csv_sha256": "eeb930b66c584ba931af3beb706918b32c1acdf0b08ee9c5aa6b2470d25c3c16",
+  "csv": "mkn_orbit_stress.csv",
+  "evidence_boundary": "These are generator and orbit-cover stress tests, not uniform samples from the full language and not capacity estimates."
+}

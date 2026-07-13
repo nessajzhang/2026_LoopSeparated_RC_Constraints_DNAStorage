@@ -1,0 +1,67 @@
+{
+  "status": "COMPUTE_CERTIFIED",
+  "alphabet": [
+    "A",
+    "C",
+    "G",
+    "T"
+  ],
+  "m": 2,
+  "subsets_checked": 65536,
+  "collatz_steps": 50,
+  "strictly_resolved_by_exact_rational_upper": 65528,
+  "exact_symbolic_maximizers": [
+    {
+      "mask": 1911,
+      "charpoly_A": "x**3*(x - 3)",
+      "charpoly_Aperp": "x**2*(x**2 - x - 3)",
+      "certified_rho_product": "3(1+sqrt(13))/2"
+    },
+    {
+      "mask": 4383,
+      "charpoly_A": "x**2*(x**2 - x - 3)",
+      "charpoly_Aperp": "x**3*(x - 3)",
+      "certified_rho_product": "3(1+sqrt(13))/2"
+    },
+    {
+      "mask": 8946,
+      "charpoly_A": "x**2*(x**2 - x - 3)",
+      "charpoly_Aperp": "x**3*(x - 3)",
+      "certified_rho_product": "3(1+sqrt(13))/2"
+    },
+    {
+      "mask": 20292,
+      "charpoly_A": "x**2*(x**2 - x - 3)",
+      "charpoly_Aperp": "x**3*(x - 3)",
+      "certified_rho_product": "3(1+sqrt(13))/2"
+    },
+    {
+      "mask": 45243,
+      "charpoly_A": "x**3*(x - 3)",
+      "charpoly_Aperp": "x**2*(x**2 - x - 3)",
+      "certified_rho_product": "3(1+sqrt(13))/2"
+    },
+    {
+      "mask": 56589,
+      "charpoly_A": "x**3*(x - 3)",
+      "charpoly_Aperp": "x**2*(x**2 - x - 3)",
+      "certified_rho_product": "3(1+sqrt(13))/2"
+    },
+    {
+      "mask": 61152,
+      "charpoly_A": "x**3*(x - 3)",
+      "charpoly_Aperp": "x**2*(x**2 - x - 3)",
+      "certified_rho_product": "3(1+sqrt(13))/2"
+    },
+    {
+      "mask": 63624,
+      "charpoly_A": "x**2*(x**2 - x - 3)",
+      "charpoly_Aperp": "x**3*(x - 3)",
+      "certified_rho_product": "3(1+sqrt(13))/2"
+    }
+  ],
+  "global_maximum": "3(1+sqrt(13))/2",
+  "certificate_rows_sha256": "0b6d9bf03f0c794d092a88c014427bfed2e2b3837620d84d0e5ea5e514002687",
+  "certificate_file": "dna_m2_spectral_collatz_certificate.tsv.gz",
+  "proof_note": "For every strict row, rho(A)rho(Aperp) is bounded by the product of two exact Collatz rational bounds, and that rational product is proved smaller than 3(1+sqrt(13))/2 by an exact squared-integer comparison. The eight remaining matrices have the displayed exact characteristic-polynomial pair, hence product exactly equal to the target."
+}

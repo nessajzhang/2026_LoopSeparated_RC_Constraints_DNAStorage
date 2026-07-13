@@ -1,0 +1,30 @@
+{
+  "status": "COMPUTE_CERTIFIED",
+  "alpha_values": [
+    0.5,
+    0.51,
+    0.55,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "lengths": [
+    1000,
+    10000,
+    100000,
+    1000000
+  ],
+  "cells": 36,
+  "largest_n": 1000000,
+  "max_terminal_abs_error": 2.979855139528809e-06,
+  "terminal_n_times_error_range": [
+    2.979855139085,
+    2.979855139529
+  ],
+  "counting": "exact integer binary matrix power; logarithms only for reporting",
+  "csv_sha256": "ba833960fa5301966018719ff9f827be8a5887afe330464eb9c3d5f4de196799",
+  "csv": "segmented_encoder_ultrascale_rates.csv"
+}
