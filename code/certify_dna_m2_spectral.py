@@ -13,6 +13,7 @@ from __future__ import annotations
 import csv
 import gzip
 import hashlib
+import io
 import json
 import sys
 from pathlib import Path
@@ -50,51 +51,57 @@ def main() -> None:
     digest = hashlib.sha256()
     resolved = 0
 
-    with gzip.open(CERTIFICATE, "wt", encoding="utf-8", newline="") as handle:
-        writer = csv.writer(handle, delimiter="\t")
-        writer.writerow(
-            [
-                "mask",
-                "rho_A_upper_num",
-                "rho_A_upper_den",
-                "rho_Aperp_upper_num",
-                "rho_Aperp_upper_den",
-                "product_upper_num",
-                "product_upper_den",
-                "status",
-            ]
-        )
-        for mask in range(2**16):
-            matrix = dna_m2_matrix(mask)
-            perpendicular = dna_m2_perp_matrix(matrix)
-            upper_a = collatz_rational_upper(matrix, STEPS)
-            upper_b = collatz_rational_upper(perpendicular, STEPS)
-            product_upper = upper_a * upper_b
-            comparison = target_lambda_squared_comparison(product_upper)
-            status = "strictly_below_target" if comparison < 0 else "symbolic_check_required"
-            if comparison < 0:
-                resolved += 1
-            else:
-                unresolved.append(
-                    {
-                        "mask": mask,
-                        "charpoly_A": characteristic_polynomial(matrix),
-                        "charpoly_Aperp": characteristic_polynomial(perpendicular),
-                    }
+    # Fix the gzip header timestamp so rerunning the certificate produces the
+    # same compressed artifact, not merely the same decompressed rows.
+    with CERTIFICATE.open("wb") as raw_handle:
+        with gzip.GzipFile(filename="", mode="wb", fileobj=raw_handle, mtime=0) as gzip_handle:
+            with io.TextIOWrapper(gzip_handle, encoding="utf-8", newline="") as handle:
+                writer = csv.writer(handle, delimiter="\t")
+                writer.writerow(
+                    [
+                        "mask",
+                        "rho_A_upper_num",
+                        "rho_A_upper_den",
+                        "rho_Aperp_upper_num",
+                        "rho_Aperp_upper_den",
+                        "product_upper_num",
+                        "product_upper_den",
+                        "status",
+                    ]
                 )
-            row = [
-                mask,
-                upper_a.numerator,
-                upper_a.denominator,
-                upper_b.numerator,
-                upper_b.denominator,
-                product_upper.numerator,
-                product_upper.denominator,
-                status,
-            ]
-            encoded = ("\t".join(map(str, row)) + "\n").encode()
-            digest.update(encoded)
-            writer.writerow(row)
+                for mask in range(2**16):
+                    matrix = dna_m2_matrix(mask)
+                    perpendicular = dna_m2_perp_matrix(matrix)
+                    upper_a = collatz_rational_upper(matrix, STEPS)
+                    upper_b = collatz_rational_upper(perpendicular, STEPS)
+                    product_upper = upper_a * upper_b
+                    comparison = target_lambda_squared_comparison(product_upper)
+                    status = (
+                        "strictly_below_target" if comparison < 0 else "symbolic_check_required"
+                    )
+                    if comparison < 0:
+                        resolved += 1
+                    else:
+                        unresolved.append(
+                            {
+                                "mask": mask,
+                                "charpoly_A": characteristic_polynomial(matrix),
+                                "charpoly_Aperp": characteristic_polynomial(perpendicular),
+                            }
+                        )
+                    row = [
+                        mask,
+                        upper_a.numerator,
+                        upper_a.denominator,
+                        upper_b.numerator,
+                        upper_b.denominator,
+                        product_upper.numerator,
+                        product_upper.denominator,
+                        status,
+                    ]
+                    encoded = ("\t".join(map(str, row)) + "\n").encode()
+                    digest.update(encoded)
+                    writer.writerow(row)
 
     unresolved_masks = tuple(item["mask"] for item in unresolved)
     if unresolved_masks != EXPECTED_MAXIMIZERS:

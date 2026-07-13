@@ -25,6 +25,10 @@ def main() -> None:
     for seed in SEEDS:
         summary_path = CAMPAIGN / f"summary_seed_{seed}.json"
         strata_path = CAMPAIGN / f"strata_seed_{seed}.csv"
+        if not strata_path.exists():
+            strata_path = strata_path.with_suffix(".csv.gz")
+        if not strata_path.exists():
+            raise FileNotFoundError(f"missing strata table for seed {seed}")
         summary = json.loads(summary_path.read_text(encoding="utf-8"))
         assert summary["status"] == "PASS"
         assert summary["failures"] == 0

@@ -57,6 +57,14 @@ uv run python code/run_mkn_orbit_stress.py
 uv run python code/make_scaling_evidence_figure.py
 ```
 
+Given the row-level ViennaRNA CSV, the Watson--Crick versus wobble-pair
+explanation can be reproduced with:
+
+```bash
+uv run python code/audit_folding_wobble_runs.py ROW_LEVEL_FOLDING.csv \
+  --assert-manuscript-counts --output output/folding_wobble_audit.json
+```
+
 ## Ancillary SMC and folding workflows
 
 The earlier large-block SMC, finite-length plotting, and ViennaRNA screen are
@@ -83,6 +91,9 @@ CASES_PER_SEED=2000000000 THREADS=10 \
   20260712 20260713 20260717 314159265 271828182
 uv run python code/aggregate_long_orbit_campaign.py
 ```
+
+The aggregator accepts either uncompressed `strata_seed_*.csv` files from a new
+run or the compressed `strata_seed_*.csv.gz` files retained in this release.
 
 ## Evidence levels
 
