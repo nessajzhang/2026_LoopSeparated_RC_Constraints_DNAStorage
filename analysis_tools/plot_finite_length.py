@@ -13,11 +13,12 @@ from matplotlib.patches import FancyArrowPatch, FancyBboxPatch, Rectangle
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "analysis_tools"
-OUT_PNG = ROOT / "fig_finite_length_rate.png"
-OUT_PDF = ROOT / "fig_finite_length_rate.pdf"
-OUT_SVG = ROOT / "fig_finite_length_rate.svg"
-OUT_TIFF = ROOT / "fig_finite_length_rate.tiff"
+DATA = ROOT / "output" / "finite_length"
+OUT_DIR = ROOT / "output" / "figures"
+OUT_PNG = OUT_DIR / "fig_finite_length_rate.png"
+OUT_PDF = OUT_DIR / "fig_finite_length_rate.pdf"
+OUT_SVG = OUT_DIR / "fig_finite_length_rate.svg"
+OUT_TIFF = OUT_DIR / "fig_finite_length_rate.tiff"
 CLASSICAL_C2 = 1.167987028946
 
 
@@ -37,7 +38,9 @@ def read_counts(k: int) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     return np.asarray(ns), np.asarray(counts, dtype=object), np.asarray(rates)
 
 
-def slope_capacity(ns: np.ndarray, counts: np.ndarray, width: int = 8) -> tuple[np.ndarray, np.ndarray]:
+def slope_capacity(
+    ns: np.ndarray, counts: np.ndarray, width: int = 8
+) -> tuple[np.ndarray, np.ndarray]:
     endpoints: list[int] = []
     estimates: list[float] = []
     log_fraction = np.asarray(
@@ -92,7 +95,9 @@ def add_box(
     return patch
 
 
-def add_arrow(ax: plt.Axes, start: tuple[float, float], end: tuple[float, float], *, color: str = "#6d7280") -> None:
+def add_arrow(
+    ax: plt.Axes, start: tuple[float, float], end: tuple[float, float], *, color: str = "#6d7280"
+) -> None:
     ax.add_patch(
         FancyArrowPatch(
             start,
@@ -132,8 +137,12 @@ def plot_rule_schematic(ax: plt.Axes) -> None:
         ax.plot([xpos, xpos], [yseq - half / 2, yseq + half / 2], color=tick, lw=0.55, zorder=1)
     ax.text(0.045, yseq, r"$x$", fontsize=8.0, ha="center", va="center", color=ink)
 
-    left_box = Rectangle((0.215, yseq - 0.048), 0.165, 0.096, facecolor="#f2f6fa", edgecolor=blue, lw=0.9)
-    right_box = Rectangle((0.710, yseq - 0.048), 0.190, 0.096, facecolor="#fbf3f5", edgecolor=wine, lw=0.9)
+    left_box = Rectangle(
+        (0.215, yseq - 0.048), 0.165, 0.096, facecolor="#f2f6fa", edgecolor=blue, lw=0.9
+    )
+    right_box = Rectangle(
+        (0.710, yseq - 0.048), 0.190, 0.096, facecolor="#fbf3f5", edgecolor=wine, lw=0.9
+    )
     ax.add_patch(left_box)
     ax.add_patch(right_box)
     ax.text(0.2975, yseq, r"$u$", fontsize=8.6, ha="center", va="center", color=ink)
@@ -163,12 +172,31 @@ def plot_rule_schematic(ax: plt.Axes) -> None:
 
     # Capacity accounting: finite-type core plus a sublinear exception budget.
     ax.plot([0.07, 0.95], [0.495, 0.495], color=pale, lw=0.7)
-    ax.text(0.075, 0.435, "capacity accounting", fontsize=7.7, fontweight="bold", ha="left", va="center", color=ink)
+    ax.text(
+        0.075,
+        0.435,
+        "capacity accounting",
+        fontsize=7.7,
+        fontweight="bold",
+        ha="left",
+        va="center",
+        color=ink,
+    )
 
     eq_y = 0.315
-    ax.text(0.235, eq_y, r"$\mathcal{L}_{m,k_n}$", fontsize=9.0, ha="center", va="center", color=ink)
+    ax.text(
+        0.235, eq_y, r"$\mathcal{L}_{m,k_n}$", fontsize=9.0, ha="center", va="center", color=ink
+    )
     ax.text(0.362, eq_y, r"$\lesssim$", fontsize=8.4, ha="center", va="center", color=muted)
-    ax.text(0.505, eq_y, r"$\mathcal{L}_{m}^{\mathrm{RC}}$", fontsize=9.0, ha="center", va="center", color=ink)
+    ax.text(
+        0.505,
+        eq_y,
+        r"$\mathcal{L}_{m}^{\mathrm{RC}}$",
+        fontsize=9.0,
+        ha="center",
+        va="center",
+        color=ink,
+    )
     ax.text(0.640, eq_y, r"$\times$", fontsize=8.0, ha="center", va="center", color=muted)
     ax.text(0.790, eq_y, r"$\mathcal{E}(B_n)$", fontsize=9.0, ha="center", va="center", color=ink)
 
@@ -200,7 +228,12 @@ def plot_rule_schematic(ax: plt.Axes) -> None:
         linespacing=0.92,
     )
 
-    ax.annotate("", xy=(0.550, 0.102), xytext=(0.550, 0.160), arrowprops=dict(arrowstyle="-|>", lw=0.65, color=muted))
+    ax.annotate(
+        "",
+        xy=(0.550, 0.102),
+        xytext=(0.550, 0.160),
+        arrowprops=dict(arrowstyle="-|>", lw=0.65, color=muted),
+    )
     ax.text(
         0.550,
         0.047,
@@ -215,9 +248,12 @@ def plot_rule_schematic(ax: plt.Axes) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--svg", action="store_true", help="Also write the optional SVG export.")
-    parser.add_argument("--tiff", action="store_true", help="Also write the optional high-resolution TIFF export.")
+    parser.add_argument(
+        "--tiff", action="store_true", help="Also write the optional high-resolution TIFF export."
+    )
     args = parser.parse_args()
 
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     plt.rcParams.update(
         {
             "font.family": "sans-serif",
@@ -266,7 +302,11 @@ def main() -> None:
         handles.append(line)
         labels.append(rf"$k={k}$")
     cap_line = axes[1].axhline(
-        CLASSICAL_C2, color="#2b2b2b", linestyle=(0, (4, 2)), linewidth=0.9, label=rf"$C_2\approx{CLASSICAL_C2:.4f}$"
+        CLASSICAL_C2,
+        color="#2b2b2b",
+        linestyle=(0, (4, 2)),
+        linewidth=0.9,
+        label=rf"$C_2\approx{CLASSICAL_C2:.4f}$",
     )
     handles.append(cap_line)
     labels.append(rf"$C_2\approx{CLASSICAL_C2:.4f}$")
@@ -276,7 +316,9 @@ def main() -> None:
     axes[1].set_xlim(left=1)
     axes[1].set_ylim(1.1, 2.03)
     axes[1].grid(axis="y", alpha=0.18, linewidth=0.45)
-    axes[1].text(39.4, CLASSICAL_C2 + 0.018, r"$C_2$", ha="right", va="bottom", fontsize=7.0, color="#2b2b2b")
+    axes[1].text(
+        39.4, CLASSICAL_C2 + 0.018, r"$C_2$", ha="right", va="bottom", fontsize=7.0, color="#2b2b2b"
+    )
 
     ns, counts, _ = read_counts(0)
     ends, estimates = slope_capacity(ns, counts, width=8)
@@ -288,7 +330,15 @@ def main() -> None:
     axes[2].set_xlim(left=8)
     axes[2].set_ylim(1.1, 2.03)
     axes[2].grid(axis="y", alpha=0.18, linewidth=0.45)
-    axes[2].text(39.4, CLASSICAL_C2 + 0.018, r"exact $C_2$", ha="right", va="bottom", fontsize=7.0, color="#2b2b2b")
+    axes[2].text(
+        39.4,
+        CLASSICAL_C2 + 0.018,
+        r"exact $C_2$",
+        ha="right",
+        va="bottom",
+        fontsize=7.0,
+        color="#2b2b2b",
+    )
     axes[2].annotate(
         "finite-window\noverestimate",
         xy=(15, estimates[np.where(ends == 15)[0][0]]),
@@ -301,9 +351,19 @@ def main() -> None:
     )
 
     for label, ax in zip(("a", "b", "c"), axes):
-        ax.text(-0.12, 1.07, label, transform=ax.transAxes, fontsize=8.2, fontweight="bold", va="bottom")
+        ax.text(
+            -0.12, 1.07, label, transform=ax.transAxes, fontsize=8.2, fontweight="bold", va="bottom"
+        )
 
-    fig.legend(handles, labels, ncol=6, loc="upper center", bbox_to_anchor=(0.56, 0.982), frameon=False, handlelength=1.8)
+    fig.legend(
+        handles,
+        labels,
+        ncol=6,
+        loc="upper center",
+        bbox_to_anchor=(0.56, 0.982),
+        frameon=False,
+        handlelength=1.8,
+    )
 
     fig.savefig(OUT_PNG, dpi=600, bbox_inches="tight")
     fig.savefig(OUT_PDF, bbox_inches="tight")

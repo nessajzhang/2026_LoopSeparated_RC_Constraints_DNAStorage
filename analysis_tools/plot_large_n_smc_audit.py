@@ -165,7 +165,9 @@ def plot_excess_panel(ax: plt.Axes, rows: list[dict[str, str]]) -> None:
         vals = []
         sems = []
         for k in ks:
-            matches = [r for r in rows if int(r["m"]) == 2 and int(r["k"]) == k and int(r["n"]) == n]
+            matches = [
+                r for r in rows if int(r["m"]) == 2 and int(r["k"]) == k and int(r["n"]) == n
+            ]
             if matches:
                 vals.append(as_float(matches[0], "excess_over_capacity"))
                 sems.append(as_float(matches[0], "sem_rate"))
@@ -194,7 +196,9 @@ def plot_excess_panel(ax: plt.Axes, rows: list[dict[str, str]]) -> None:
     ax.grid(axis="y", alpha=0.18, lw=0.45)
 
 
-def plot_aggregate_decay_panel(ax: plt.Axes, rows: list[dict[str, str]], capacity: float = CLASSICAL_C2) -> None:
+def plot_aggregate_decay_panel(
+    ax: plt.Axes, rows: list[dict[str, str]], capacity: float = CLASSICAL_C2
+) -> None:
     target_ks = {0, 1, 2, 5, 10, 20}
     subset = [r for r in rows if int(r["m"]) == 2 and int(r["k"]) in target_ks]
     ns = []
@@ -215,9 +219,32 @@ def plot_aggregate_decay_panel(ax: plt.Axes, rows: list[dict[str, str]], capacit
     mean_excess_arr = np.array(mean_excess)
     spread_arr = np.array(spread)
     sem_arr = np.array(sem_envelope)
-    ax.plot(ns_arr, mean_excess_arr, color=PALETTE["blue_main"], lw=1.35, marker="o", ms=2.6, label=r"mean excess over $c_2$")
-    ax.fill_between(ns_arr, mean_excess_arr - 1.96 * sem_arr, mean_excess_arr + 1.96 * sem_arr, color=PALETTE["blue_main"], alpha=0.12, lw=0)
-    ax.plot(ns_arr, spread_arr, color=PALETTE["rose"], lw=1.25, marker="s", ms=2.4, label=r"between-$k$ spread")
+    ax.plot(
+        ns_arr,
+        mean_excess_arr,
+        color=PALETTE["blue_main"],
+        lw=1.35,
+        marker="o",
+        ms=2.6,
+        label=r"mean excess over $c_2$",
+    )
+    ax.fill_between(
+        ns_arr,
+        mean_excess_arr - 1.96 * sem_arr,
+        mean_excess_arr + 1.96 * sem_arr,
+        color=PALETTE["blue_main"],
+        alpha=0.12,
+        lw=0,
+    )
+    ax.plot(
+        ns_arr,
+        spread_arr,
+        color=PALETTE["rose"],
+        lw=1.25,
+        marker="s",
+        ms=2.4,
+        label=r"between-$k$ spread",
+    )
     ax.axhline(0, color=PALETTE["neutral_dark"], lw=0.8, ls=(0, (4, 2)))
     ax.set_xscale("log")
     ax.set_yscale("log")
@@ -227,12 +254,16 @@ def plot_aggregate_decay_panel(ax: plt.Axes, rows: list[dict[str, str]], capacit
     ax.grid(axis="y", alpha=0.18, lw=0.45)
 
 
-def plot_excess_heatmap_panel(ax: plt.Axes, rows: list[dict[str, str]], capacity: float = CLASSICAL_C2) -> None:
+def plot_excess_heatmap_panel(
+    ax: plt.Axes, rows: list[dict[str, str]], capacity: float = CLASSICAL_C2
+) -> None:
     subset = [r for r in rows if int(r["m"]) == 2 and int(r["k"]) in {0, 1, 2, 5, 10, 20}]
     ks = sorted({int(r["k"]) for r in subset})
     ns = sorted({int(r["n"]) for r in subset})
     grid = np.full((len(ks), len(ns)), np.nan, dtype=float)
-    lookup = {(int(r["k"]), int(r["n"])): max(as_float(r, "excess_over_capacity"), 1e-5) for r in subset}
+    lookup = {
+        (int(r["k"]), int(r["n"])): max(as_float(r, "excess_over_capacity"), 1e-5) for r in subset
+    }
     for i, k in enumerate(ks):
         for j, n in enumerate(ns):
             if (k, n) in lookup:
@@ -246,7 +277,14 @@ def plot_excess_heatmap_panel(ax: plt.Axes, rows: list[dict[str, str]], capacity
         norm=LogNorm(vmin=1e-4, vmax=max(0.5, np.nanmax(grid))),
     )
     ax.set_xticks(np.arange(len(ns)))
-    ax.set_xticklabels([rf"$10^{{{int(np.log10(n))}}}$" if n in {100, 1000, 10000, 100000} else str(n) for n in ns], rotation=45, ha="right")
+    ax.set_xticklabels(
+        [
+            rf"$10^{{{int(np.log10(n))}}}$" if n in {100, 1000, 10000, 100000} else str(n)
+            for n in ns
+        ],
+        rotation=45,
+        ha="right",
+    )
     ax.set_yticks(np.arange(len(ks)))
     ax.set_yticklabels([str(k) for k in ks])
     ax.set_xlabel("Block length $n$")
@@ -259,7 +297,11 @@ def plot_excess_heatmap_panel(ax: plt.Axes, rows: list[dict[str, str]], capacity
 
 def plot_terminal_excess_panel(ax: plt.Axes, rows: list[dict[str, str]], n: int = 100000) -> None:
     subset = sorted(
-        [r for r in rows if int(r["m"]) == 2 and int(r["n"]) == n and int(r["k"]) in {0, 1, 2, 5, 10, 20}],
+        [
+            r
+            for r in rows
+            if int(r["m"]) == 2 and int(r["n"]) == n and int(r["k"]) in {0, 1, 2, 5, 10, 20}
+        ],
         key=lambda r: int(r["k"]),
     )
     ks = [int(r["k"]) for r in subset]
@@ -393,7 +435,9 @@ def plot_threshold_scale_panel(ax: plt.Axes) -> None:
 
 def plot_calibration_panel(ax: plt.Axes, rows: list[dict[str, str]]) -> None:
     if not rows:
-        ax.text(0.5, 0.5, "Calibration data pending", ha="center", va="center", transform=ax.transAxes)
+        ax.text(
+            0.5, 0.5, "Calibration data pending", ha="center", va="center", transform=ax.transAxes
+        )
         ax.set_axis_off()
         return
     subset = [r for r in rows if int(r["n"]) <= 40]
@@ -449,7 +493,9 @@ def main() -> None:
 
     if args.six_panel:
         fig = plt.figure(figsize=(7.25, 7.1))
-        gs = fig.add_gridspec(3, 2, left=0.080, right=0.985, bottom=0.085, top=0.925, hspace=0.58, wspace=0.32)
+        gs = fig.add_gridspec(
+            3, 2, left=0.080, right=0.985, bottom=0.085, top=0.925, hspace=0.58, wspace=0.32
+        )
         ax_a = fig.add_subplot(gs[0, 0])
         ax_b = fig.add_subplot(gs[0, 1])
         ax_c = fig.add_subplot(gs[1, 0])
@@ -472,7 +518,9 @@ def main() -> None:
         ax_f.legend(loc="upper right", fontsize=5.7, handlelength=1.15)
     else:
         fig = plt.figure(figsize=(7.25, 5.6))
-        gs = fig.add_gridspec(2, 2, left=0.085, right=0.985, bottom=0.12, top=0.90, hspace=0.50, wspace=0.30)
+        gs = fig.add_gridspec(
+            2, 2, left=0.085, right=0.985, bottom=0.12, top=0.90, hspace=0.50, wspace=0.30
+        )
         ax_a = fig.add_subplot(gs[0, 0])
         ax_b = fig.add_subplot(gs[0, 1])
         ax_c = fig.add_subplot(gs[1, 0])

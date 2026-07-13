@@ -191,7 +191,9 @@ def run_one_window_queue(args: tuple) -> list[dict[str, str]]:
                         "unique_particle_states": "0",
                         "state_representation": "window_queue",
                         "transition_cache_size": str(len(cache.cache)),
-                        "transition_cache_limit": "unbounded" if cache_max is None else str(cache_max),
+                        "transition_cache_limit": "unbounded"
+                        if cache_max is None
+                        else str(cache_max),
                         "run_status": "particle_extinction",
                         "extinction_n": str(n),
                         "elapsed_sec": elapsed,
@@ -398,7 +400,9 @@ def summarize(rows: list[dict[str, str]], capacity: float) -> list[dict[str, str
         group_rows = grouped[key]
         particle_values = {row["particles"] for row in group_rows}
         if len(particle_values) != 1:
-            raise ValueError(f"mixed particle counts for SMC summary group {key}: {sorted(particle_values)}")
+            raise ValueError(
+                f"mixed particle counts for SMC summary group {key}: {sorted(particle_values)}"
+            )
         finite_vals = []
         for row in group_rows:
             rate = float(row["rate_est_bits_per_nt"])
@@ -460,7 +464,9 @@ def load_exact_rates(paths: list[Path]) -> dict[tuple[int, int, int], float]:
     return exact
 
 
-def validate(summary_rows: list[dict[str, str]], exact: dict[tuple[int, int, int], float]) -> list[dict[str, str]]:
+def validate(
+    summary_rows: list[dict[str, str]], exact: dict[tuple[int, int, int], float]
+) -> list[dict[str, str]]:
     out: list[dict[str, str]] = []
     for row in summary_rows:
         key = (int(row["m"]), int(row["k"]), int(row["n"]))
@@ -513,7 +519,9 @@ def main() -> None:
     cache_max = None if args.cache_max < 0 else args.cache_max
     for k in ks:
         for rep in range(args.reps):
-            tasks.append((args.m, k, args.particles, rep, n_values, args.seed + 1009 * k + rep, cache_max))
+            tasks.append(
+                (args.m, k, args.particles, rep, n_values, args.seed + 1009 * k + rep, cache_max)
+            )
 
     print(
         f"Running SMC: m={args.m}, ks={ks}, n_max={max(n_values)}, "

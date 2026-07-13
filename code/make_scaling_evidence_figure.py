@@ -79,6 +79,7 @@ def setup_style() -> None:
             "legend.frameon": False,
             "lines.linewidth": 1.25,
             "svg.fonttype": "none",
+            "svg.hashsalt": "loop-separated-rc-scaling-evidence-v1",
             "pdf.fonttype": 42,
             "figure.facecolor": "white",
             "axes.facecolor": "white",
@@ -313,8 +314,11 @@ def main() -> None:
     draw_panel_c(axes[2], broad_rows)
     draw_panel_d(axes[3], finite_rows)
 
-    fig.savefig(STEM.with_suffix(".svg"))
-    fig.savefig(STEM.with_suffix(".pdf"))
+    fig.savefig(STEM.with_suffix(".svg"), metadata={"Date": None})
+    fig.savefig(
+        STEM.with_suffix(".pdf"),
+        metadata={"CreationDate": None, "ModDate": None},
+    )
     fig.savefig(STEM.with_suffix(".tiff"), dpi=600)
     fig.savefig(STEM.with_suffix(".png"), dpi=300)
     plt.close(fig)

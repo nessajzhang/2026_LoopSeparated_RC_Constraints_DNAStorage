@@ -105,8 +105,7 @@ def select_rows(
     selected.extend(
         row
         for row in k20_long
-        if int(row["k"]) == 20
-        and int(row["n"]) in {5000, 10000, 20000, 50000, 100000}
+        if int(row["k"]) == 20 and int(row["n"]) in {5000, 10000, 20000, 50000, 100000}
     )
     return selected
 
@@ -118,8 +117,8 @@ def validate_grid(summary: list[dict[str, str]]) -> None:
     expected = {(k, n) for k in expected_k for n in expected_n}
     if observed != expected:
         raise ValueError(
-            f"selected fixed-k grid mismatch: missing={sorted(expected-observed)}, "
-            f"extra={sorted(observed-expected)}"
+            f"selected fixed-k grid mismatch: missing={sorted(expected - observed)}, "
+            f"extra={sorted(observed - expected)}"
         )
     for row in summary:
         if int(row["m"]) != 2 or row["regime"] != "fixed":

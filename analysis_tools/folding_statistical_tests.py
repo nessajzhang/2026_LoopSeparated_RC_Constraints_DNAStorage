@@ -173,7 +173,8 @@ def main() -> None:
                     "fisher_less_p": float(fisher_less),
                     "random_mean_max_stem": mean(random_max_stem),
                     "ssa_mean_max_stem": mean(ssa_max_stem),
-                    "mean_max_stem_delta_ssa_minus_random": mean(ssa_max_stem) - mean(random_max_stem),
+                    "mean_max_stem_delta_ssa_minus_random": mean(ssa_max_stem)
+                    - mean(random_max_stem),
                     "bootstrap_ci95_mean_max_stem_delta_low": stem_delta_low,
                     "bootstrap_ci95_mean_max_stem_delta_high": stem_delta_high,
                     "mannwhitney_max_stem_less_p": mw_less,
@@ -189,9 +190,7 @@ def main() -> None:
     for row, f_adj, m_adj in zip(out_rows, fisher_adj, mann_adj):
         row["fisher_less_p_holm"] = f_adj
         row["mannwhitney_max_stem_less_p_holm"] = m_adj
-        row["risk_delta_ci_excludes_zero"] = (
-            float(row["bootstrap_ci95_risk_delta_high"]) < 0
-        )
+        row["risk_delta_ci_excludes_zero"] = float(row["bootstrap_ci95_risk_delta_high"]) < 0
         row["max_stem_delta_ci_excludes_zero"] = (
             float(row["bootstrap_ci95_mean_max_stem_delta_high"]) < 0
         )

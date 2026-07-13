@@ -136,7 +136,9 @@ def main() -> None:
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--png", action="store_true", help="Also write a PNG next to --out.")
     parser.add_argument("--svg", action="store_true", help="Also write an SVG next to --out.")
-    parser.add_argument("--tiff", action="store_true", help="Also write a high-resolution TIFF next to --out.")
+    parser.add_argument(
+        "--tiff", action="store_true", help="Also write a high-resolution TIFF next to --out."
+    )
     args = parser.parse_args()
 
     configure_matplotlib()
@@ -199,7 +201,15 @@ def main() -> None:
         ax.grid(axis="y", color="#d9d9d9", linewidth=0.45, alpha=0.55)
         ax.set_xticks([100, 150, 200])
         ax.set_xlim(92, 208)
-        ax.text(-0.145, 1.03, panel, transform=ax.transAxes, fontsize=8.2, fontweight="bold", va="bottom")
+        ax.text(
+            -0.145,
+            1.03,
+            panel,
+            transform=ax.transAxes,
+            fontsize=8.2,
+            fontweight="bold",
+            va="bottom",
+        )
         ax.text(0.02, 0.90, rf"$m={m}$", transform=ax.transAxes, fontsize=7.8, fontweight="bold")
         ax.text(
             0.98,
@@ -221,7 +231,15 @@ def main() -> None:
         ha="center",
         fontsize=7.4,
     )
-    fig.legend(handles, labels, ncol=5, loc="upper center", bbox_to_anchor=(0.54, 0.985), handlelength=1.55, columnspacing=0.8)
+    fig.legend(
+        handles,
+        labels,
+        ncol=5,
+        loc="upper center",
+        bbox_to_anchor=(0.54, 0.985),
+        handlelength=1.55,
+        columnspacing=0.8,
+    )
 
     save_all(fig, args.out, png=args.png, svg=args.svg, tiff=args.tiff)
 

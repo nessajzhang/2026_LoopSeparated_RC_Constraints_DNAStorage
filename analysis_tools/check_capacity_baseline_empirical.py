@@ -140,14 +140,15 @@ def run_case(case: ModelCase) -> None:
     c_bits = math.log2(rho_star) if rho_star > 0 else float("-inf")
     print(
         f"CASE {case.name}: q={case.q} m={case.m} cores={len(cores)} "
-        f"rho_star={rho_star:.12g} c_bits={c_bits:.9f}"
-        ,
+        f"rho_star={rho_star:.12g} c_bits={c_bits:.9f}",
         flush=True,
     )
 
     exact_by_k: dict[int, list[int]] = {}
     for k in case.k_values:
-        exact_by_k[k] = [exact_count(case.q, case.theta, case.m, k, n) for n in range(case.n_max + 1)]
+        exact_by_k[k] = [
+            exact_count(case.q, case.theta, case.m, k, n) for n in range(case.n_max + 1)
+        ]
 
     for n in range(case.m, case.n_max + 1):
         # Unseparated words must contain every individual finite-type core.

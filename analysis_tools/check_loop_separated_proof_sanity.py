@@ -78,7 +78,9 @@ def window_counter(word: tuple[int, ...], m: int) -> Counter[tuple[int, ...]]:
     return Counter(word[i : i + m] for i in range(0, len(word) - m + 1))
 
 
-def check_case(name: str, q: int, theta: dict[int, int], max_n: int, max_m: int, max_k: int) -> dict[str, int]:
+def check_case(
+    name: str, q: int, theta: dict[int, int], max_n: int, max_m: int, max_k: int
+) -> dict[str, int]:
     stats = {
         "words": 0,
         "avoiding_words": 0,

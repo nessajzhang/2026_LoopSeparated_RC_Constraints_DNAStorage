@@ -146,7 +146,7 @@ def main() -> None:
         # estimate the sharp Jordan exponent.
         if slope > d + 1.0:
             raise AssertionError(
-                f"{case.name}: empirical K slope {slope:.3f} exceeds loose polynomial gate d+1={d+1}"
+                f"{case.name}: empirical K slope {slope:.3f} exceeds loose polynomial gate d+1={d + 1}"
             )
         print(f"  PASS lower_ratio_min={lower:.6g}; empirical_K_log_slope={slope:.3f}")
 

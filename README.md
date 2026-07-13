@@ -20,8 +20,8 @@ previous numerical artifacts remain reproducible.
 ```bash
 uv sync
 uv run pytest -q
-uv run ruff check code loop_alpha_audit tests
-uv run ruff format --check code loop_alpha_audit tests
+uv run ruff check .
+uv run ruff format --check .
 ```
 
 ## Exact and finite-block computations
@@ -70,15 +70,63 @@ uv run python code/audit_folding_wobble_runs.py ROW_LEVEL_FOLDING.csv \
 The earlier large-block SMC, finite-length plotting, and ViennaRNA screen are
 retained under `analysis_tools/`. Their additional dependencies are listed in
 `analysis_tools/requirements.txt` and
-`analysis_tools/requirements_folding.txt`. The fixed-threshold SMC workflow is
-started with:
+`analysis_tools/requirements_folding.txt`. The frozen finite-length counts,
+selected SMC replicate tables, curated SMC summary, and derived folding summary
+are under `output/`. The exact finite-length and SMC figures can be regenerated
+without rerunning the expensive experiments:
+
+```bash
+uv run python analysis_tools/plot_finite_length.py
+uv run python analysis_tools/plot_large_n_smc_audit.py \
+  --out-prefix output/figures/fig_large_n_smc_audit \
+  --m2 output/smc/large_n_smc_m2_fixedk_summary.csv \
+  --validation output/smc/large_n_smc_m2_validation_against_exact.csv \
+  --six-panel
+uv run python analysis_tools/plot_folding_comparison_tcom.py \
+  --comparison output/folding/folding_comparison_len100_150_200_m6_7_s1000.csv \
+  --out output/figures/fig_folding_validation_tcom.pdf
+```
+
+The selected SMC summary can also be rebuilt from the retained replicate rows:
+
+```bash
+uv run python analysis_tools/curate_fixedk_smc_summary.py \
+  --base-raw output/smc/large_n_smc_m2_fixedk_selected_base_raw.csv \
+  --k20-short-raw output/smc/large_n_smc_m2_k20_refine_short_raw.csv \
+  --k20-long-raw output/smc/large_n_smc_m2_k20_refine_long_raw.csv \
+  --out output/smc/large_n_smc_m2_fixedk_summary_rebuilt.csv
+```
+
+The full fixed-threshold SMC workflow is started with:
 
 ```bash
 bash analysis_tools/run_fixedk_smc_audit.sh
 ```
 
+The 1000-sequence-per-group ViennaRNA grid reported by the accompanying study
+requires ViennaRNA 2.7.2. Install the additional dependency into the project
+environment and regenerate the row-level grid with:
+
+```bash
+uv pip install --python .venv/bin/python \
+  -r analysis_tools/requirements_folding.txt
+uv run python analysis_tools/folding_grid.py \
+  --lengths 100,150,200 --m-values 6,7 --k-values 0,3,4,5 \
+  --samples 1000 --seed 20260628 \
+  --gc-low 0.40 --gc-high 0.60 --max-homopolymer 4 \
+  --out output/folding_grid_1000_rows.csv \
+  --summary-out output/folding_grid_1000_summary.csv
+uv run python analysis_tools/summarize_folding_comparison.py \
+  --rows output/folding_grid_1000_rows.csv --m-values 6,7 \
+  --out output/folding_comparison_1000.csv
+uv run python analysis_tools/plot_folding_comparison_tcom.py \
+  --comparison output/folding_comparison_1000.csv \
+  --out output/fig_folding_validation_tcom.pdf
+```
+
 These scripts accept explicit seeds and write generated products under
-`output/`.
+`output/`. The row-level folding table is intentionally not committed because
+it is large; the deterministic seed and complete command are recorded above.
 
 ## Optional long occurrence-position campaign
 
@@ -99,8 +147,9 @@ run or the compressed `strata_seed_*.csv.gz` files retained in this release.
 
 - The DNA `m=2` spectral maximum is an exact rational/symbolic certificate over
   all 65,536 subsets.
-- The paired endpoint language is propagated completely through `r=5000` and
-  cross-checked against an exact-integer Python implementation.
+- The complete paired-endpoint state space is propagated numerically through
+  `r=5000`; an independent exact-integer implementation cross-checks nine
+  checkpoints through `r=12`.
 - The broad-`m` construction audit includes 217 exact finite-length cells over
   15 stem thresholds through `m=128`, eight linear-threshold ratios, and two
   block lengths; certified asymptotic cells extend through `m=1024`.

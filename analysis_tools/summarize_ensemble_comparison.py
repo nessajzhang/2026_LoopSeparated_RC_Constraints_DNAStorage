@@ -41,11 +41,7 @@ def build_comparison(rows: list[dict[str, str]]) -> list[dict[str, object]]:
     if not rows:
         raise ValueError("no rows in ensemble summary")
 
-    metric_fields = [
-        field
-        for field in rows[0]
-        if field.startswith("mean_ensemble_")
-    ]
+    metric_fields = [field for field in rows[0] if field.startswith("mean_ensemble_")]
     if not metric_fields:
         raise ValueError("no mean_ensemble_* fields found")
 
@@ -68,7 +64,9 @@ def build_comparison(rows: list[dict[str, str]]) -> list[dict[str, object]]:
             target = safe_float(row.get(field, ""))
             base = safe_float(baseline.get(field, ""))
             delta = target - base
-            rel = delta / abs(base) if base not in (0.0, -0.0) and not math.isnan(base) else math.nan
+            rel = (
+                delta / abs(base) if base not in (0.0, -0.0) and not math.isnan(base) else math.nan
+            )
             out.append(
                 {
                     "group": row.get("group", ""),

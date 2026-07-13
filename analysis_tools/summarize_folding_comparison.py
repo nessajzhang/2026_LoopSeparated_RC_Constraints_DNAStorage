@@ -57,7 +57,9 @@ def main() -> None:
     output: list[dict[str, object]] = []
 
     for length in lengths:
-        random_subset = [r for r in rows if r["group"] == "random_gc_homopolymer" and int(r["length"]) == length]
+        random_subset = [
+            r for r in rows if r["group"] == "random_gc_homopolymer" and int(r["length"]) == length
+        ]
         for m in m_values:
             for subset_name, subset in [("random_gc_homopolymer", random_subset)]:
                 mfes = [float(r["mfe_kcal_mol"]) for r in subset]

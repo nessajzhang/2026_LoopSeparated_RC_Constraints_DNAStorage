@@ -3,8 +3,8 @@
 Generate DNA sequences under configurable screens, fold them with ViennaRNA,
 and report minimum-free-energy (MFE) summaries.
 
-The sampler is not claimed to be uniform over the constrained language.  Its
-It is intended for diagnostic comparisons rather than uniform sampling of the
+The sampler is not claimed to be uniform over the constrained language. It is
+intended for diagnostic comparisons rather than uniform sampling of the
 constrained language.
 """
 
@@ -274,8 +274,8 @@ def main() -> None:
         stems = [int(r["mfe_max_stem"]) for r in subset]
         print(
             f"{group}: n={len(subset)} "
-            f"mean_mfe={sum(mfes)/len(mfes):.3f} "
-            f"mean_max_stem={sum(stems)/len(stems):.3f}"
+            f"mean_mfe={sum(mfes) / len(mfes):.3f} "
+            f"mean_max_stem={sum(stems) / len(stems):.3f}"
         )
 
 
