@@ -3,9 +3,10 @@
 
 The combinatorial constraint uses Watson--Crick reverse complements, whereas
 ViennaRNA's DNA parameterization can also form G--T/T--G wobble pairs. This
-script reconstructs maximal contiguous nested runs from dot-bracket structures
-and reports whether each qualifying run is Watson--Crick-only or contains a
-wobble pair.
+script reconstructs maximal contiguous nested runs from dot-bracket structures.
+It audits both whole qualifying runs and every contiguous length-$m$ subrun.
+The subrun check is the one needed to rule out a forbidden Watson--Crick-only
+window inside a longer predicted stem.
 """
 
 from __future__ import annotations
@@ -27,6 +28,10 @@ EXPECTED = {
     "runs_with_wobble": 2635,
     "watson_crick_only_runs": 0,
     "runs_with_other_pairs": 0,
+    "qualifying_subruns": 4671,
+    "subruns_with_wobble": 4671,
+    "watson_crick_only_subruns": 0,
+    "subruns_with_other_pairs": 0,
 }
 
 
@@ -77,6 +82,13 @@ def run_pair_classes(sequence: str, run: list[tuple[int, int]]) -> set[str]:
     return classes
 
 
+def contiguous_subruns(run: list[tuple[int, int]], length: int) -> list[list[tuple[int, int]]]:
+    """Return all contiguous pair subruns of the requested positive length."""
+    if length < 1:
+        raise ValueError("subrun length must be positive")
+    return [run[start : start + length] for start in range(len(run) - length + 1)]
+
+
 def audit(path: Path) -> dict[str, object]:
     screened_rows = 0
     flagged_sequences = 0
@@ -84,8 +96,13 @@ def audit(path: Path) -> dict[str, object]:
     runs_with_wobble = 0
     watson_crick_only_runs = 0
     runs_with_other_pairs = 0
+    qualifying_subruns = 0
+    subruns_with_wobble = 0
+    watson_crick_only_subruns = 0
+    subruns_with_other_pairs = 0
     flagged_by_group: Counter[str] = Counter()
     runs_by_group: Counter[str] = Counter()
+    subruns_by_group: Counter[str] = Counter()
 
     with path.open(newline="", encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
@@ -121,6 +138,16 @@ def audit(path: Path) -> dict[str, object]:
                     watson_crick_only_runs += 1
                 if "other" in classes:
                     runs_with_other_pairs += 1
+                for subrun in contiguous_subruns(run, m):
+                    qualifying_subruns += 1
+                    subruns_by_group[group_key] += 1
+                    subrun_classes = run_pair_classes(sequence, subrun)
+                    if "wobble" in subrun_classes:
+                        subruns_with_wobble += 1
+                    if subrun_classes == {"watson_crick"}:
+                        watson_crick_only_subruns += 1
+                    if "other" in subrun_classes:
+                        subruns_with_other_pairs += 1
 
     result: dict[str, object] = {
         "status": "PASS",
@@ -131,8 +158,13 @@ def audit(path: Path) -> dict[str, object]:
         "runs_with_wobble": runs_with_wobble,
         "watson_crick_only_runs": watson_crick_only_runs,
         "runs_with_other_pairs": runs_with_other_pairs,
+        "qualifying_subruns": qualifying_subruns,
+        "subruns_with_wobble": subruns_with_wobble,
+        "watson_crick_only_subruns": watson_crick_only_subruns,
+        "subruns_with_other_pairs": subruns_with_other_pairs,
         "flagged_sequences_by_group": dict(sorted(flagged_by_group.items())),
         "qualifying_runs_by_group": dict(sorted(runs_by_group.items())),
+        "qualifying_subruns_by_group": dict(sorted(subruns_by_group.items())),
         "evidence_boundary": (
             "This is a deterministic audit of supplied ViennaRNA predictions. "
             "It is not a folding experiment or a capacity calculation."

@@ -90,7 +90,7 @@ def main() -> None:
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--m-values", default="6,7")
     parser.add_argument("--bootstrap-resamples", type=int, default=5000)
-    parser.add_argument("--seed", type=int, default=20260628)
+    parser.add_argument("--seed", type=int, default=20260629)
     args = parser.parse_args()
 
     rows = load_rows(args.rows)
