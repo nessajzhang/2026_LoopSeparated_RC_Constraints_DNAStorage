@@ -58,7 +58,9 @@ uv run python code/make_scaling_evidence_figure.py
 ```
 
 Given the row-level ViennaRNA CSV, the Watson--Crick versus wobble-pair
-explanation can be reproduced with:
+explanation can be reproduced with the following audit. It checks every
+contiguous length-`m` subrun inside every qualifying predicted stem, rather
+than checking only the maximal run as a whole.
 
 ```bash
 uv run python code/audit_folding_wobble_runs.py ROW_LEVEL_FOLDING.csv \
@@ -104,15 +106,15 @@ bash analysis_tools/run_fixedk_smc_audit.sh
 ```
 
 The 1000-sequence-per-group ViennaRNA grid reported by the accompanying study
-requires ViennaRNA 2.7.2. Install the additional dependency into the project
-environment and regenerate the row-level grid with:
+used seed `20260629` and requires ViennaRNA 2.7.2. Install the additional
+dependency into the project environment and regenerate the row-level grid with:
 
 ```bash
 uv pip install --python .venv/bin/python \
   -r analysis_tools/requirements_folding.txt
 uv run python analysis_tools/folding_grid.py \
   --lengths 100,150,200 --m-values 6,7 --k-values 0,3,4,5 \
-  --samples 1000 --seed 20260628 \
+  --samples 1000 --seed 20260629 \
   --gc-low 0.40 --gc-high 0.60 --max-homopolymer 4 \
   --out output/folding_grid_1000_rows.csv \
   --summary-out output/folding_grid_1000_summary.csv

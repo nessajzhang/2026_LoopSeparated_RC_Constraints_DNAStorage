@@ -19,9 +19,21 @@
     "length=200,m=6": 806,
     "length=200,m=7": 428
   },
+  "qualifying_subruns": 4671,
+  "qualifying_subruns_by_group": {
+    "length=100,m=6": 603,
+    "length=100,m=7": 312,
+    "length=150,m=6": 1062,
+    "length=150,m=7": 504,
+    "length=200,m=6": 1440,
+    "length=200,m=7": 750
+  },
   "runs_with_other_pairs": 0,
   "runs_with_wobble": 2635,
   "screened_rows": 6000,
   "status": "PASS",
-  "watson_crick_only_runs": 0
+  "subruns_with_other_pairs": 0,
+  "subruns_with_wobble": 4671,
+  "watson_crick_only_runs": 0,
+  "watson_crick_only_subruns": 0
 }

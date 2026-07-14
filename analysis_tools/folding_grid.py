@@ -85,7 +85,7 @@ def main() -> None:
     parser.add_argument("--m-values", default="6,7")
     parser.add_argument("--k-values", default="0,3,4,5")
     parser.add_argument("--samples", type=int, default=50)
-    parser.add_argument("--seed", type=int, default=20260628)
+    parser.add_argument("--seed", type=int, default=20260629)
     parser.add_argument("--gc-low", type=float, default=0.40)
     parser.add_argument("--gc-high", type=float, default=0.60)
     parser.add_argument("--max-homopolymer", type=int, default=4)

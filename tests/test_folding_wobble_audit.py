@@ -8,6 +8,7 @@ MODULE = runpy.run_path(
 dot_bracket_pairs = MODULE["dot_bracket_pairs"]
 maximal_nested_runs = MODULE["maximal_nested_runs"]
 run_pair_classes = MODULE["run_pair_classes"]
+contiguous_subruns = MODULE["contiguous_subruns"]
 
 
 def test_nested_run_reconstruction() -> None:
@@ -22,3 +23,12 @@ def test_pair_classification() -> None:
     sequence = "AGTTT"
     run = [(0, 4), (1, 3)]
     assert run_pair_classes(sequence, run) == {"watson_crick", "wobble"}
+
+
+def test_every_length_m_subrun_must_be_checked() -> None:
+    sequence = "AAGTTT"
+    run = [(0, 5), (1, 4), (2, 3)]
+    subruns = contiguous_subruns(run, 2)
+    assert run_pair_classes(sequence, run) == {"watson_crick", "wobble"}
+    assert run_pair_classes(sequence, subruns[0]) == {"watson_crick"}
+    assert run_pair_classes(sequence, subruns[1]) == {"watson_crick", "wobble"}
