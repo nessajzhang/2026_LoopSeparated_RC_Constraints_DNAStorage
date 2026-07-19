@@ -88,17 +88,17 @@ def setup_style() -> None:
     )
 
 
-def panel_label(ax: mpl.axes.Axes, label: str) -> None:
+def panel_caption(ax: mpl.axes.Axes, label: str, title: str) -> None:
     ax.text(
-        -0.12,
-        1.055,
-        label,
+        0.5,
+        -0.29,
+        f"({label}) {title}",
         transform=ax.transAxes,
-        fontsize=8.2,
-        fontweight="bold",
-        ha="left",
+        fontsize=7.0,
+        ha="center",
         va="top",
         color=INK,
+        clip_on=False,
     )
 
 
@@ -118,7 +118,10 @@ def draw_panel_a(ax: mpl.axes.Axes, encoder_rows: list[dict[str, str]]) -> None:
         1_000: dict(marker="s", facecolors="white", edgecolors=ORANGE, linewidths=0.7),
         1_000_000: dict(marker="o", facecolors=ORANGE, edgecolors="white", linewidths=0.35),
     }
-    labels = {1_000: r"encoder, $n=10^3$", 1_000_000: r"encoder, $n=10^6$"}
+    labels = {
+        1_000: r"codebook rate, $n=10^3$",
+        1_000_000: r"codebook rate, $n=10^6$",
+    }
     for n in (1_000, 1_000_000):
         rows = sorted(
             (row for row in encoder_rows if int(row["n"]) == n),
@@ -150,7 +153,6 @@ def draw_panel_a(ax: mpl.axes.Axes, encoder_rows: list[dict[str, str]]) -> None:
     ax.set_ylabel("rate (bits/nt)")
     ax.legend(loc="lower right", borderaxespad=0.2, handletextpad=0.4)
     quiet_grid(ax)
-    panel_label(ax, "a")
 
 
 def draw_panel_b(ax: mpl.axes.Axes, paired_rows: list[dict[str, str]]) -> None:
@@ -187,7 +189,6 @@ def draw_panel_b(ax: mpl.axes.Axes, paired_rows: list[dict[str, str]]) -> None:
     ax.set_xlabel(r"endpoint-window length, $r$")
     ax.set_ylabel(r"$r^{-1}\log_2 F_2(r)$")
     quiet_grid(ax)
-    panel_label(ax, "b")
 
 
 def draw_panel_c(ax: mpl.axes.Axes, broad_rows: list[dict[str, str]]) -> None:
@@ -222,7 +223,6 @@ def draw_panel_c(ax: mpl.axes.Axes, broad_rows: list[dict[str, str]]) -> None:
     ax.set_ylabel("certified rate lower bound (bits/nt)")
     ax.legend(loc="lower right", ncol=2, columnspacing=0.8, handlelength=1.6)
     quiet_grid(ax)
-    panel_label(ax, "c")
 
 
 def draw_panel_d(ax: mpl.axes.Axes, finite_rows: list[dict[str, str]]) -> None:
@@ -267,7 +267,6 @@ def draw_panel_d(ax: mpl.axes.Axes, finite_rows: list[dict[str, str]]) -> None:
     ax.set_ylabel("exact finite structured rate (bits/nt)")
     ax.legend(loc="lower right", ncol=2, columnspacing=0.8, handlelength=1.5)
     quiet_grid(ax)
-    panel_label(ax, "d")
 
 
 def main() -> None:
@@ -302,7 +301,8 @@ def main() -> None:
         figsize=(WIDTH_MM * INCH_PER_MM, HEIGHT_MM * INCH_PER_MM),
         layout="constrained",
     )
-    grid = fig.add_gridspec(2, 2, width_ratios=(1.08, 0.92), hspace=0.12, wspace=0.08)
+    fig.get_layout_engine().set(h_pad=0.09, w_pad=0.04, hspace=0.16, wspace=0.08)
+    grid = fig.add_gridspec(2, 2, width_ratios=(1.08, 0.92), hspace=0.24, wspace=0.08)
     axes = [
         fig.add_subplot(grid[0, 0]),
         fig.add_subplot(grid[0, 1]),
@@ -313,6 +313,10 @@ def main() -> None:
     draw_panel_b(axes[1], paired_rows)
     draw_panel_c(axes[2], broad_rows)
     draw_panel_d(axes[3], finite_rows)
+    panel_caption(axes[0], "a", "Exact upper-linear capacity")
+    panel_caption(axes[1], "b", "Endpoint exponent convergence")
+    panel_caption(axes[2], "c", r"General-$m$ achievable bounds")
+    panel_caption(axes[3], "d", "Exact finite-block lower bounds")
 
     fig.savefig(STEM.with_suffix(".svg"), metadata={"Date": None})
     fig.savefig(
