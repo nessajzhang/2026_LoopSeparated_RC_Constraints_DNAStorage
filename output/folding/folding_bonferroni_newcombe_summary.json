@@ -1,0 +1,204 @@
+{
+  "method": "two-sided Bonferroni-Newcombe score intervals",
+  "familywise_confidence": 0.95,
+  "comparison_count": 24,
+  "per_comparison_alpha": 0.0020833333333333333,
+  "per_comparison_z": 3.0780880728421613,
+  "all_lower_bounds_positive": true,
+  "minimum_lower_percentage_points": 2.5454453037575444,
+  "maximum_upper_percentage_points": 40.42590075428377,
+  "intervals": [
+    {
+      "length": 100,
+      "m": 6,
+      "k": 0,
+      "reduction_percentage_points": 24.600000000000005,
+      "lower_percentage_points": 17.89111862788318,
+      "upper_percentage_points": 30.99200557195597
+    },
+    {
+      "length": 150,
+      "m": 6,
+      "k": 0,
+      "reduction_percentage_points": 32.1,
+      "lower_percentage_points": 25.651578002251057,
+      "upper_percentage_points": 38.15825738322485
+    },
+    {
+      "length": 200,
+      "m": 6,
+      "k": 0,
+      "reduction_percentage_points": 32.10000000000001,
+      "lower_percentage_points": 26.24441083991239,
+      "upper_percentage_points": 37.668976122574044
+    },
+    {
+      "length": 100,
+      "m": 6,
+      "k": 3,
+      "reduction_percentage_points": 24.600000000000005,
+      "lower_percentage_points": 17.89111862788318,
+      "upper_percentage_points": 30.99200557195597
+    },
+    {
+      "length": 150,
+      "m": 6,
+      "k": 3,
+      "reduction_percentage_points": 34.400000000000006,
+      "lower_percentage_points": 27.949838452122254,
+      "upper_percentage_points": 40.42590075428377
+    },
+    {
+      "length": 200,
+      "m": 6,
+      "k": 3,
+      "reduction_percentage_points": 30.800000000000004,
+      "lower_percentage_points": 24.96925700755377,
+      "upper_percentage_points": 36.36344029038935
+    },
+    {
+      "length": 100,
+      "m": 6,
+      "k": 4,
+      "reduction_percentage_points": 23.200000000000003,
+      "lower_percentage_points": 16.460468706411742,
+      "upper_percentage_points": 29.639063317332337
+    },
+    {
+      "length": 150,
+      "m": 6,
+      "k": 4,
+      "reduction_percentage_points": 32.300000000000004,
+      "lower_percentage_points": 25.851119675575855,
+      "upper_percentage_points": 38.3557623977204
+    },
+    {
+      "length": 200,
+      "m": 6,
+      "k": 4,
+      "reduction_percentage_points": 28.700000000000003,
+      "lower_percentage_points": 22.915016883227533,
+      "upper_percentage_points": 34.248269507781686
+    },
+    {
+      "length": 100,
+      "m": 6,
+      "k": 5,
+      "reduction_percentage_points": 24.500000000000004,
+      "lower_percentage_points": 17.78882345723381,
+      "upper_percentage_points": 30.895459278339633
+    },
+    {
+      "length": 150,
+      "m": 6,
+      "k": 5,
+      "reduction_percentage_points": 30.000000000000004,
+      "lower_percentage_points": 23.55989710534657,
+      "upper_percentage_points": 36.08079167327995
+    },
+    {
+      "length": 200,
+      "m": 6,
+      "k": 5,
+      "reduction_percentage_points": 27.1,
+      "lower_percentage_points": 21.354582775236764,
+      "upper_percentage_points": 32.6314599491068
+    },
+    {
+      "length": 100,
+      "m": 7,
+      "k": 0,
+      "reduction_percentage_points": 9.1,
+      "lower_percentage_points": 3.4927991832465914,
+      "upper_percentage_points": 14.6479349589617
+    },
+    {
+      "length": 150,
+      "m": 7,
+      "k": 0,
+      "reduction_percentage_points": 17.599999999999998,
+      "lower_percentage_points": 11.083308414077973,
+      "upper_percentage_points": 23.90876183196884
+    },
+    {
+      "length": 200,
+      "m": 7,
+      "k": 0,
+      "reduction_percentage_points": 23.799999999999997,
+      "lower_percentage_points": 16.992981602706223,
+      "upper_percentage_points": 30.291718372102807
+    },
+    {
+      "length": 100,
+      "m": 7,
+      "k": 3,
+      "reduction_percentage_points": 8.400000000000002,
+      "lower_percentage_points": 2.7557831611541563,
+      "upper_percentage_points": 13.987300510429328
+    },
+    {
+      "length": 150,
+      "m": 7,
+      "k": 3,
+      "reduction_percentage_points": 16.7,
+      "lower_percentage_points": 10.157093404227282,
+      "upper_percentage_points": 23.043936640548722
+    },
+    {
+      "length": 200,
+      "m": 7,
+      "k": 3,
+      "reduction_percentage_points": 23.299999999999997,
+      "lower_percentage_points": 16.486634892984004,
+      "upper_percentage_points": 29.804554137840544
+    },
+    {
+      "length": 100,
+      "m": 7,
+      "k": 4,
+      "reduction_percentage_points": 9.8,
+      "lower_percentage_points": 4.231142372363773,
+      "upper_percentage_points": 15.307742728895807
+    },
+    {
+      "length": 150,
+      "m": 7,
+      "k": 4,
+      "reduction_percentage_points": 14.700000000000003,
+      "lower_percentage_points": 8.103924555202651,
+      "upper_percentage_points": 21.117937788689943
+    },
+    {
+      "length": 200,
+      "m": 7,
+      "k": 4,
+      "reduction_percentage_points": 24.099999999999998,
+      "lower_percentage_points": 17.29696912646635,
+      "upper_percentage_points": 30.58384918171921
+    },
+    {
+      "length": 100,
+      "m": 7,
+      "k": 5,
+      "reduction_percentage_points": 8.200000000000001,
+      "lower_percentage_points": 2.5454453037575444,
+      "upper_percentage_points": 13.798396456253004
+    },
+    {
+      "length": 150,
+      "m": 7,
+      "k": 5,
+      "reduction_percentage_points": 15.699999999999998,
+      "lower_percentage_points": 9.129643544886791,
+      "upper_percentage_points": 22.08165204819843
+    },
+    {
+      "length": 200,
+      "m": 7,
+      "k": 5,
+      "reduction_percentage_points": 20.999999999999996,
+      "lower_percentage_points": 14.162198962605837,
+      "upper_percentage_points": 27.559118154066773
+    }
+  ]
+}

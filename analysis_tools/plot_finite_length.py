@@ -112,13 +112,27 @@ def add_arrow(
     )
 
 
+def add_panel_subtitle(ax: plt.Axes, label: str, title: str) -> None:
+    """Place a compact panel label and title below an axes."""
+
+    ax.text(
+        0.5,
+        -0.36,
+        f"({label}) {title}",
+        transform=ax.transAxes,
+        fontsize=7.7,
+        ha="center",
+        va="top",
+        clip_on=False,
+    )
+
+
 def plot_rule_schematic(ax: plt.Axes) -> None:
     """Draw the delayed reverse-complement rule in the same style as the plots."""
 
     ax.set_axis_off()
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
-    ax.set_title("Delayed RC screening rule", pad=7)
 
     ink = "#2b2b2b"
     muted = "#5b6370"
@@ -198,7 +212,15 @@ def plot_rule_schematic(ax: plt.Axes) -> None:
         color=ink,
     )
     ax.text(0.640, eq_y, r"$\times$", fontsize=8.0, ha="center", va="center", color=muted)
-    ax.text(0.790, eq_y, r"$\mathcal{E}(B_n)$", fontsize=9.0, ha="center", va="center", color=ink)
+    ax.text(
+        0.790,
+        eq_y,
+        r"$\mathcal{E}(E_n^{\mathrm{start}})$",
+        fontsize=8.5,
+        ha="center",
+        va="center",
+        color=ink,
+    )
 
     ax.plot([0.445, 0.565], [0.250, 0.250], color=teal, lw=0.85)
     ax.plot([0.445, 0.445], [0.250, 0.270], color=teal, lw=0.85)
@@ -230,15 +252,24 @@ def plot_rule_schematic(ax: plt.Axes) -> None:
 
     ax.annotate(
         "",
-        xy=(0.550, 0.102),
+        xy=(0.550, 0.135),
         xytext=(0.550, 0.160),
         arrowprops=dict(arrowstyle="-|>", lw=0.65, color=muted),
     )
     ax.text(
         0.550,
-        0.047,
-        r"$B_n=(2(m+k_n)-1)q^m,\quad B_n=o(n)\Rightarrow C_{m,k_n}=C_m$",
-        fontsize=7.35,
+        0.090,
+        r"$E_n^{\mathrm{start}}=(2(m+k_n)-1)q^m$",
+        fontsize=7.15,
+        ha="center",
+        va="center",
+        color=ink,
+    )
+    ax.text(
+        0.550,
+        0.020,
+        r"$k_n=o(n)\Rightarrow R_{\theta,n}(m,k_n)\to c_{\theta,m}$",
+        fontsize=7.15,
         ha="center",
         va="center",
         color=ink,
@@ -277,10 +308,10 @@ def main() -> None:
             "legend.frameon": False,
         }
     )
-    fig = plt.figure(figsize=(7.25, 3.05), constrained_layout=False)
+    fig = plt.figure(figsize=(7.25, 3.15), constrained_layout=False)
     gs = fig.add_gridspec(1, 3, width_ratios=(1.22, 1.0, 1.0))
     axes = [fig.add_subplot(gs[0, idx]) for idx in range(3)]
-    fig.subplots_adjust(left=0.045, right=0.987, bottom=0.175, top=0.765, wspace=0.34)
+    fig.subplots_adjust(left=0.045, right=0.987, bottom=0.235, top=0.765, wspace=0.34)
 
     colors = {0: "#2f5277", 1: "#5a9a9a", 2: "#c8a85a", 3: "#d98b5f", 5: "#b85c70"}
     markers = {0: "o", 1: "s", 2: "^", 3: "D", 5: "v"}
@@ -306,34 +337,32 @@ def main() -> None:
         color="#2b2b2b",
         linestyle=(0, (4, 2)),
         linewidth=0.9,
-        label=rf"$C_2\approx{CLASSICAL_C2:.4f}$",
+        label=rf"$c_2\approx{CLASSICAL_C2:.4f}$",
     )
     handles.append(cap_line)
-    labels.append(rf"$C_2\approx{CLASSICAL_C2:.4f}$")
+    labels.append(rf"$c_2\approx{CLASSICAL_C2:.4f}$")
     axes[1].set_xlabel("Block length $n$")
     axes[1].set_ylabel(r"Finite-block rate $R_n(2,k)$ [bits/nt]")
-    axes[1].set_title("Exact finite-block rates")
     axes[1].set_xlim(left=1)
     axes[1].set_ylim(1.1, 2.03)
     axes[1].grid(axis="y", alpha=0.18, linewidth=0.45)
     axes[1].text(
-        39.4, CLASSICAL_C2 + 0.018, r"$C_2$", ha="right", va="bottom", fontsize=7.0, color="#2b2b2b"
+        39.4, CLASSICAL_C2 + 0.018, r"$c_2$", ha="right", va="bottom", fontsize=7.0, color="#2b2b2b"
     )
 
     ns, counts, _ = read_counts(0)
     ends, estimates = slope_capacity(ns, counts, width=8)
     axes[2].plot(ends, estimates, color="#8c3550", marker="o", markersize=2.8, linewidth=1.35)
     axes[2].axhline(CLASSICAL_C2, color="#2b2b2b", linestyle=(0, (4, 2)), linewidth=0.9)
-    axes[2].set_xlabel("Right endpoint of 8-point fit")
+    axes[2].set_xlabel(r"Window endpoint $N$ of 8-point OLS fit")
     axes[2].set_ylabel("Slope-based estimate [bits/nt]")
-    axes[2].set_title("Short-window fit bias")
     axes[2].set_xlim(left=8)
     axes[2].set_ylim(1.1, 2.03)
     axes[2].grid(axis="y", alpha=0.18, linewidth=0.45)
     axes[2].text(
         39.4,
         CLASSICAL_C2 + 0.018,
-        r"exact $C_2$",
+        r"baseline $c_2$",
         ha="right",
         va="bottom",
         fontsize=7.0,
@@ -350,10 +379,12 @@ def main() -> None:
         va="center",
     )
 
-    for label, ax in zip(("a", "b", "c"), axes):
-        ax.text(
-            -0.12, 1.07, label, transform=ax.transAxes, fontsize=8.2, fontweight="bold", va="bottom"
-        )
+    for label, title, ax in zip(
+        ("a", "b", "c"),
+        ("Delayed RC screening rule", "Exact finite-block rates", "Eight-point slope-fit bias"),
+        axes,
+    ):
+        add_panel_subtitle(ax, label, title)
 
     fig.legend(
         handles,

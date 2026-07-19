@@ -105,21 +105,26 @@ def apply_style() -> None:
             "axes.spines.right": False,
             "axes.spines.top": False,
             "legend.frameon": False,
-            "figure.dpi": 220,
+            # imshow artists remain raster inside PDF output. Set the figure
+            # rasterization resolution above the IEEE color/grayscale minimum
+            # while preserving vector text, axes, and line art.
+            "figure.dpi": 600,
         }
     )
 
 
-def add_panel_label(ax: plt.Axes, label: str) -> None:
+def add_panel_subtitle(ax: plt.Axes, label: str, title: str, *, y: float = -0.36) -> None:
+    """Place a compact panel label and title below an axes."""
+
     ax.text(
-        -0.16,
-        1.08,
-        label,
+        0.5,
+        y,
+        f"({label}) {title}",
         transform=ax.transAxes,
-        fontsize=8.6,
-        fontweight="bold",
-        ha="left",
-        va="bottom",
+        fontsize=7.4,
+        ha="center",
+        va="top",
+        clip_on=False,
     )
 
 
@@ -142,7 +147,6 @@ def plot_fixed_k_panel(ax: plt.Axes, rows: list[dict[str, str]], m: int, capacit
     ax.set_xscale("log")
     ax.set_xlabel("Block length $n$")
     ax.set_ylabel("SMC rate estimate [bits/nt]")
-    ax.set_title(rf"Fixed-$k$ convergence, $m={m}$")
     ax.grid(axis="y", alpha=0.18, lw=0.45)
     ax.text(
         0.97,
@@ -192,7 +196,6 @@ def plot_excess_panel(ax: plt.Axes, rows: list[dict[str, str]]) -> None:
     ax.set_xticklabels([str(k) for k in ks])
     ax.set_xlabel("Loop threshold $k$")
     ax.set_ylabel(r"Excess over $c_2$ [bits/nt]")
-    ax.set_title("Residual finite-block excess")
     ax.grid(axis="y", alpha=0.18, lw=0.45)
 
 
@@ -250,7 +253,6 @@ def plot_aggregate_decay_panel(
     ax.set_yscale("log")
     ax.set_xlabel("Block length $n$")
     ax.set_ylabel("Rate difference [bits/nt]")
-    ax.set_title(r"Decay of finite-block elevation, $m=2$")
     ax.grid(axis="y", alpha=0.18, lw=0.45)
 
 
@@ -289,7 +291,6 @@ def plot_excess_heatmap_panel(
     ax.set_yticklabels([str(k) for k in ks])
     ax.set_xlabel("Block length $n$")
     ax.set_ylabel("Loop threshold $k$")
-    ax.set_title(r"Excess-rate map above $c_2$")
     cbar = plt.colorbar(im, ax=ax, fraction=0.045, pad=0.025)
     cbar.ax.tick_params(labelsize=6.2, length=2)
     cbar.set_label("bits/nt", fontsize=6.6)
@@ -315,7 +316,6 @@ def plot_terminal_excess_panel(ax: plt.Axes, rows: list[dict[str, str]], n: int 
     ax.set_xticklabels([str(k) for k in ks])
     ax.set_xlabel("Loop threshold $k$")
     ax.set_ylabel(r"Excess at $n=10^5$ [milli-bits/nt]")
-    ax.set_title(r"Fixed-$k$ rates nearly coalesce at $10^5$")
     ax.grid(axis="y", alpha=0.18, lw=0.45)
 
 
@@ -350,7 +350,6 @@ def plot_regime_panel(ax: plt.Axes, rows: list[dict[str, str]]) -> None:
     ax.set_xscale("log")
     ax.set_xlabel("Final block length $n$")
     ax.set_ylabel(r"Excess over $c_2$ [bits/nt]")
-    ax.set_title("Threshold-growth regimes")
     ax.grid(axis="y", alpha=0.18, lw=0.45)
 
 
@@ -409,7 +408,7 @@ def plot_threshold_scale_panel(ax: plt.Axes) -> None:
     ax.text(
         1.2e2,
         0.55,
-        r"$B_n/n=0.5$",
+        r"$E_n^{\mathrm{start}}/n=0.5$",
         va="bottom",
         ha="left",
         fontsize=6.2,
@@ -428,8 +427,7 @@ def plot_threshold_scale_panel(ax: plt.Axes) -> None:
     ax.set_yscale("log")
     ax.set_ylim(1e-4, 20.0)
     ax.set_xlabel("Block length $n$")
-    ax.set_ylabel(r"Proof budget ratio $B_n/n$")
-    ax.set_title(r"Analytic proof-budget scale (no SMC)")
+    ax.set_ylabel(r"Coarse start-budget ratio $E_n^{\mathrm{start}}/n$")
     ax.grid(axis="y", alpha=0.18, lw=0.45)
 
 
@@ -452,7 +450,6 @@ def plot_calibration_panel(ax: plt.Axes, rows: list[dict[str, str]]) -> None:
     ax.axhline(0, color=PALETTE["neutral_dark"], lw=0.8, ls=(0, (4, 2)))
     ax.set_xlabel("Exact-enumeration length $n$")
     ax.set_ylabel("SMC $-$ exact [bits/nt]")
-    ax.set_title("SMC calibration against exact counts")
     ax.grid(axis="y", alpha=0.18, lw=0.45)
 
 
@@ -492,9 +489,9 @@ def main() -> None:
     validation_rows = merge_summaries(args.validation) if args.validation else []
 
     if args.six_panel:
-        fig = plt.figure(figsize=(7.25, 7.1))
+        fig = plt.figure(figsize=(7.25, 7.35))
         gs = fig.add_gridspec(
-            3, 2, left=0.080, right=0.985, bottom=0.085, top=0.925, hspace=0.58, wspace=0.32
+            3, 2, left=0.080, right=0.985, bottom=0.105, top=0.985, hspace=0.86, wspace=0.32
         )
         ax_a = fig.add_subplot(gs[0, 0])
         ax_b = fig.add_subplot(gs[0, 1])
@@ -510,16 +507,24 @@ def main() -> None:
         plot_calibration_panel(ax_e, validation_rows)
         plot_threshold_scale_panel(ax_f)
 
-        for ax, label in zip((ax_a, ax_b, ax_c, ax_d, ax_e, ax_f), "abcdef"):
-            add_panel_label(ax, label)
+        panel_titles = (
+            r"Fixed-$k$ convergence ($m=2$)",
+            "Finite-block elevation decay",
+            r"Excess-rate map above $c_2$",
+            r"Near-coalescence at $n=10^5$",
+            "SMC calibration against exact counts",
+            "Coarse occurrence-start budget",
+        )
+        for ax, label, title in zip((ax_a, ax_b, ax_c, ax_d, ax_e, ax_f), "abcdef", panel_titles):
+            add_panel_subtitle(ax, label, title, y=-0.46)
         ax_a.legend(ncol=3, loc="upper right", handlelength=1.4, columnspacing=0.8, fontsize=6.0)
         ax_b.legend(ncol=1, loc="upper right", handlelength=1.4, columnspacing=0.8)
         ax_e.legend(ncol=2, loc="upper right", handlelength=1.2, fontsize=6.1)
         ax_f.legend(loc="upper right", fontsize=5.7, handlelength=1.15)
     else:
-        fig = plt.figure(figsize=(7.25, 5.6))
+        fig = plt.figure(figsize=(7.25, 5.8))
         gs = fig.add_gridspec(
-            2, 2, left=0.085, right=0.985, bottom=0.12, top=0.90, hspace=0.50, wspace=0.30
+            2, 2, left=0.085, right=0.985, bottom=0.13, top=0.985, hspace=0.68, wspace=0.30
         )
         ax_a = fig.add_subplot(gs[0, 0])
         ax_b = fig.add_subplot(gs[0, 1])
@@ -536,21 +541,20 @@ def main() -> None:
         else:
             plot_calibration_panel(ax_d, validation_rows)
 
-        add_panel_label(ax_a, "a")
-        add_panel_label(ax_b, "b")
-        add_panel_label(ax_c, "c")
-        add_panel_label(ax_d, "d")
+        add_panel_subtitle(ax_a, "a", r"Fixed-$k$ convergence ($m=2$)")
+        add_panel_subtitle(ax_b, "b", "Finite-block elevation decay")
+        add_panel_subtitle(ax_c, "c", "Residual finite-block excess")
+        if args.threshold_scale:
+            panel_d_title = "Coarse occurrence-start budget"
+        elif regime_rows:
+            panel_d_title = "Threshold-growth regimes"
+        else:
+            panel_d_title = "SMC calibration against exact counts"
+        add_panel_subtitle(ax_d, "d", panel_d_title)
         ax_a.legend(ncol=3, loc="upper right", handlelength=1.4, columnspacing=0.8)
         ax_b.legend(ncol=2, loc="upper right", handlelength=1.4, columnspacing=0.8)
         ax_c.legend(loc="upper right", handlelength=1.2)
         ax_d.legend(loc="upper right", fontsize=6.1, handlelength=1.3)
-
-    fig.suptitle(
-        "Large-block numerical audit of loop-separated capacity stability",
-        y=0.982,
-        fontsize=8.6,
-        fontweight="bold",
-    )
 
     out = args.out_prefix
     out.parent.mkdir(parents=True, exist_ok=True)

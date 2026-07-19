@@ -44,6 +44,11 @@ output/full_word_definition_audit --extended --threads 10 \
   --csv output/full_word_definition_audit_extended_10t_jobs.csv
 ```
 
+The spectral summary field `certificate_rows_sha256` is the digest of the
+65,536 canonical data rows (header excluded, tab-separated fields, LF line
+endings). It is intentionally distinct from the compressed-TSV file hash
+recorded in `MANIFEST.sha256`.
+
 The extended profile enumerates actual words rather than occurrence sets. It
 checks every available stem threshold and every finite loop threshold for the
 specified binary, ternary, and quaternary jobs.
@@ -86,8 +91,12 @@ uv run python analysis_tools/plot_large_n_smc_audit.py \
   --six-panel
 uv run python analysis_tools/plot_folding_comparison_tcom.py \
   --comparison output/folding/folding_comparison_len100_150_200_m6_7_s1000.csv \
-  --out output/figures/fig_folding_validation_tcom.pdf
+  --out output/figures/fig_folding_validation_tcom.pdf \
+  --summary output/folding/folding_bonferroni_newcombe_summary.json
 ```
+
+The Fig. 3 PDF retains vector text, axes, and line art. Its `imshow` heatmap
+and colorbar are embedded at 600 ppi at the generated size.
 
 The selected SMC summary can also be rebuilt from the retained replicate rows:
 
@@ -123,7 +132,8 @@ uv run python analysis_tools/summarize_folding_comparison.py \
   --out output/folding_comparison_1000.csv
 uv run python analysis_tools/plot_folding_comparison_tcom.py \
   --comparison output/folding_comparison_1000.csv \
-  --out output/fig_folding_validation_tcom.pdf
+  --out output/fig_folding_validation_tcom.pdf \
+  --summary output/folding_bonferroni_newcombe_summary.json
 ```
 
 These scripts accept explicit seeds and write generated products under
