@@ -1,0 +1,28 @@
+{
+  "schema": "loop-separated-public-code-snapshot-v1",
+  "release_date": "2026-10-27",
+  "baseline_commit": "318a65699470a29e37332ca5fa0bdb03578d7c7d",
+  "scope": [
+    "mapping and receiving algorithms",
+    "IDS drivers and frozen configurations",
+    "exact spectral certificates and isolated checkers",
+    "computational profile wrappers",
+    "statistical builders, plot source and derived source tables"
+  ],
+  "excluded": [
+    "manuscript documents and TeX",
+    "peer review and response correspondence",
+    "author contact information",
+    "credentials, institution and host configuration",
+    "large full-raw archives"
+  ],
+  "manifest_sha256": "a349820969e0fae158fb4038ad68993cf43495a562303ab1f8d1ae2a431c7d99",
+  "manifest_file_count": 305,
+  "private_frozen_bundle_is_not_identical_to_public_tree": true,
+  "portability_changes": [
+    "Public fallback locations for the two profile-wrapper test fixtures",
+    "Public analysis entry point verifies frozen builder identities before running"
+  ],
+  "algorithm_numeric_changes_since_frozen_source": false,
+  "raw_data_distribution": "Separate computational/full-raw archive layer; not this Git repository"
+}

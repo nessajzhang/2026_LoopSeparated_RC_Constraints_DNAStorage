@@ -1,0 +1,37 @@
+{
+  "phase": "SMOKE_NOT_FORMAL",
+  "seed": 20261023126,
+  "batches": [
+    1
+  ],
+  "repeats": 1,
+  "config_timeout_seconds": 60,
+  "design_reason": "Bounded long-word implementation stress, frozen before observations: one measured input plus separately recorded warmup per cell. Not the formal 58-cell throughput grid and not a confidence/performance comparison. No retries or outcome-selected cells.",
+  "prefix_scope": "Unframed high-alpha endpoint subcodes; not short-k deployment or ECC.",
+  "configs": [
+    {
+      "kind": "endpoint_m2",
+      "n": 1000,
+      "m": 2,
+      "k": 500
+    },
+    {
+      "kind": "endpoint_m3",
+      "n": 1000,
+      "m": 3,
+      "k": 500
+    },
+    {
+      "kind": "endpoint_m2",
+      "n": 10000,
+      "m": 2,
+      "k": 5000
+    },
+    {
+      "kind": "endpoint_m3",
+      "n": 10000,
+      "m": 3,
+      "k": 5000
+    }
+  ]
+}

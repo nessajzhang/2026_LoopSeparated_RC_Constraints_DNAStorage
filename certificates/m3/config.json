@@ -1,0 +1,14 @@
+{
+  "arithmetic": "exact Python integers and fractions.Fraction",
+  "binary_collatz_vector_steps": 64,
+  "binary_sanity_masks": 256,
+  "cpu_processes_in_parallel": 1,
+  "external_dependencies_in_checker": [],
+  "global_method": "human-readable analytic proof; not DNA-domain enumeration",
+  "m": 3,
+  "proof_assistant_formalization": false,
+  "proof_sha256": "fdde4a01b4640a6b79d759a5668a16bb9544048c8bd966058fc11ad005f11498",
+  "q": 4,
+  "random_sampling": false,
+  "seed": null
+}

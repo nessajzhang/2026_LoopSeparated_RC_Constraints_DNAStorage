@@ -1,0 +1,32 @@
+{
+  "phase": "PILOT_NOT_FORMAL_GRID",
+  "seed": 20261023,
+  "batches": [1, 100, 1000],
+  "repeats": 5,
+  "configs": [
+    {"kind":"endpoint_m2","n":100,"m":2,"k":50},
+    {"kind":"endpoint_m2","n":100,"m":2,"k":60},
+    {"kind":"endpoint_m2","n":100,"m":2,"k":75},
+    {"kind":"endpoint_m2","n":100,"m":2,"k":90},
+    {"kind":"endpoint_m2","n":150,"m":2,"k":75},
+    {"kind":"endpoint_m2","n":150,"m":2,"k":90},
+    {"kind":"endpoint_m2","n":150,"m":2,"k":112},
+    {"kind":"endpoint_m2","n":150,"m":2,"k":135},
+    {"kind":"endpoint_m2","n":200,"m":2,"k":100},
+    {"kind":"endpoint_m2","n":200,"m":2,"k":120},
+    {"kind":"endpoint_m2","n":200,"m":2,"k":150},
+    {"kind":"endpoint_m2","n":200,"m":2,"k":180},
+    {"kind":"endpoint_m2","n":300,"m":2,"k":150},
+    {"kind":"endpoint_m2","n":300,"m":2,"k":180},
+    {"kind":"endpoint_m2","n":300,"m":2,"k":225},
+    {"kind":"endpoint_m2","n":300,"m":2,"k":270},
+    {"kind":"short_core","n":150,"m":6,"k":3,"prefix":"CCTTCCTTCCTTCCTTCCTTCCTTCC"},
+    {"kind":"short_core","n":150,"m":7,"k":3,"prefix":"CCTTCCTTCCTTCCTTCCTTCCTTCC"},
+    {"kind":"nonce","n":150,"m":7,"k":3,"prefix":"CCTTCCTTCCTTCCTTCCTTCCTTAT","nonce_nt":4,"nonce_budget":64},
+    {"kind":"nonce","n":150,"m":7,"k":3,"prefix":"CCTTCCTTCCTTCCTTCCTTCCTTAT","nonce_nt":4,"nonce_budget":256},
+    {"kind":"gc_h_nonce","n":150,"m":7,"k":3,"prefix":"CCTTCCTTCCTTCCTTCCTTCCTTAG","nonce_nt":4,"nonce_budget":64},
+    {"kind":"gc_h_nonce","n":150,"m":7,"k":3,"prefix":"CCTTCCTTCCTTCCTTCCTTCCTTAG","nonce_nt":4,"nonce_budget":256},
+    {"kind":"two_bit","n":150,"m":7,"k":3,"prefix":"CCTTCCTTCCTTCCTTCCTTCCTTGG"}
+  ],
+  "limits": "No million-length encode claim; no channel/FER/physical-benefit inference; no 10000 batch before T34 acceptance"
+}

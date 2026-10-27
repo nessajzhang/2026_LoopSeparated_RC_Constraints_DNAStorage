@@ -1,0 +1,112 @@
+{
+  "status": "PRE_RUN_REVIEW_REQUIRED_NOT_EXECUTED",
+  "main_config": "ids_main_v1.json",
+  "main_files": 72000,
+  "secondary_files": 32640,
+  "categories": {
+    "length_stem": 7680,
+    "short_gap": 2304,
+    "sampling_dropout": 7680,
+    "rate_fer": 10368,
+    "nonce_budget": 1536,
+    "inner_repair_ablation": 1536,
+    "stress_not_platform": 1536
+  },
+  "configs": [
+    {
+      "name": "ids_length_n100_m6_v1.json",
+      "category": "length_stem",
+      "planned_files": 1536
+    },
+    {
+      "name": "ids_length_n100_m7_v1.json",
+      "category": "length_stem",
+      "planned_files": 1536
+    },
+    {
+      "name": "ids_length_n150_m6_v1.json",
+      "category": "length_stem",
+      "planned_files": 1536
+    },
+    {
+      "name": "ids_length_n200_m6_v1.json",
+      "category": "length_stem",
+      "planned_files": 1536
+    },
+    {
+      "name": "ids_length_n200_m7_v1.json",
+      "category": "length_stem",
+      "planned_files": 1536
+    },
+    {
+      "name": "ids_gap_m6_k0_v1.json",
+      "category": "short_gap",
+      "planned_files": 384
+    },
+    {
+      "name": "ids_gap_m6_k4_v1.json",
+      "category": "short_gap",
+      "planned_files": 384
+    },
+    {
+      "name": "ids_gap_m6_k5_v1.json",
+      "category": "short_gap",
+      "planned_files": 384
+    },
+    {
+      "name": "ids_gap_m7_k0_v1.json",
+      "category": "short_gap",
+      "planned_files": 384
+    },
+    {
+      "name": "ids_gap_m7_k4_v1.json",
+      "category": "short_gap",
+      "planned_files": 384
+    },
+    {
+      "name": "ids_gap_m7_k5_v1.json",
+      "category": "short_gap",
+      "planned_files": 384
+    },
+    {
+      "name": "ids_sampling_v1.json",
+      "category": "sampling_dropout",
+      "planned_files": 7680
+    },
+    {
+      "name": "ids_outer_k63_v1.json",
+      "category": "rate_fer",
+      "planned_files": 3456
+    },
+    {
+      "name": "ids_outer_k59_v1.json",
+      "category": "rate_fer",
+      "planned_files": 3456
+    },
+    {
+      "name": "ids_outer_k47_v1.json",
+      "category": "rate_fer",
+      "planned_files": 3456
+    },
+    {
+      "name": "ids_nonce_budget16_v1.json",
+      "category": "nonce_budget",
+      "planned_files": 768
+    },
+    {
+      "name": "ids_nonce_budget256_v1.json",
+      "category": "nonce_budget",
+      "planned_files": 768
+    },
+    {
+      "name": "ids_no_edit_repair_v1.json",
+      "category": "inner_repair_ablation",
+      "planned_files": 1536
+    },
+    {
+      "name": "ids_stress_v1.json",
+      "category": "stress_not_platform",
+      "planned_files": 1536
+    }
+  ]
+}

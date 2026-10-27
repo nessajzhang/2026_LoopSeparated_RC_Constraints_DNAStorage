@@ -3,3 +3,6 @@ output/*.csv binary
 output/**/*.csv binary
 output/*.gz binary
 output/**/*.gz binary
+source_data/**/*.csv binary
+reproducibility/profiles/**/fixtures/*.csv binary
+certificates/**/*.gz binary

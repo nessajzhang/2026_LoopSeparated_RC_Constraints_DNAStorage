@@ -1,0 +1,152 @@
+{
+  "arbitrary_subsets_checked": 65536,
+  "collatz_steps": 50,
+  "exact_maximizers": [
+    {
+      "complement_charpoly_coefficients": [
+        1,
+        -1,
+        -3,
+        0,
+        0
+      ],
+      "left_charpoly_coefficients": [
+        1,
+        -3,
+        0,
+        0,
+        0
+      ],
+      "mask": 1911
+    },
+    {
+      "complement_charpoly_coefficients": [
+        1,
+        -3,
+        0,
+        0,
+        0
+      ],
+      "left_charpoly_coefficients": [
+        1,
+        -1,
+        -3,
+        0,
+        0
+      ],
+      "mask": 4383
+    },
+    {
+      "complement_charpoly_coefficients": [
+        1,
+        -3,
+        0,
+        0,
+        0
+      ],
+      "left_charpoly_coefficients": [
+        1,
+        -1,
+        -3,
+        0,
+        0
+      ],
+      "mask": 8946
+    },
+    {
+      "complement_charpoly_coefficients": [
+        1,
+        -3,
+        0,
+        0,
+        0
+      ],
+      "left_charpoly_coefficients": [
+        1,
+        -1,
+        -3,
+        0,
+        0
+      ],
+      "mask": 20292
+    },
+    {
+      "complement_charpoly_coefficients": [
+        1,
+        -1,
+        -3,
+        0,
+        0
+      ],
+      "left_charpoly_coefficients": [
+        1,
+        -3,
+        0,
+        0,
+        0
+      ],
+      "mask": 45243
+    },
+    {
+      "complement_charpoly_coefficients": [
+        1,
+        -1,
+        -3,
+        0,
+        0
+      ],
+      "left_charpoly_coefficients": [
+        1,
+        -3,
+        0,
+        0,
+        0
+      ],
+      "mask": 56589
+    },
+    {
+      "complement_charpoly_coefficients": [
+        1,
+        -1,
+        -3,
+        0,
+        0
+      ],
+      "left_charpoly_coefficients": [
+        1,
+        -3,
+        0,
+        0,
+        0
+      ],
+      "mask": 61152
+    },
+    {
+      "complement_charpoly_coefficients": [
+        1,
+        -3,
+        0,
+        0,
+        0
+      ],
+      "left_charpoly_coefficients": [
+        1,
+        -1,
+        -3,
+        0,
+        0
+      ],
+      "mask": 63624
+    }
+  ],
+  "exact_maximum": "3*(1+sqrt(13))/2",
+  "independent_method": "new bit-row matrix reconstruction, integer (I+M)^50 vector, exact squared comparison, integer trace charpoly",
+  "integer_strict_bounds": 65528,
+  "objective": "rho(U)*rho(complement U)",
+  "python": "3.12.13",
+  "row_digest_sha256": "41adb0f1c4c0397e85b7521c8b36e9b5560e3f69c6b7209250c76765abdc4628",
+  "status": "PASS",
+  "uses_floating_eigenvalues": false,
+  "wall_seconds": 9.300330137000856,
+  "word_order": "base-4 lexicographic; all 16 bits independent"
+}

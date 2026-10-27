@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Sequence
+from collections import OrderedDict
+import sys
+import threading
+from typing import Callable, Hashable, Sequence
 
 from .model import Word
 from .paired import decomposition_parameters
@@ -19,6 +22,98 @@ RIGHT_ADJACENCY = (
 )
 
 
+class ExactTableCache:
+    """Bounded immutable-table LRU; live caller references are not cache-owned.
+
+    Construction is serialized to avoid duplicate cold builds for concurrent
+    equal configurations. Byte accounting includes reachable tuples and exact
+    integers, once per identity. This is not an RSS or process-memory limit.
+    """
+
+    def __init__(self, max_bytes: int = 64 * 1024**2, max_entries: int = 64):
+        self._lock = threading.RLock()
+        self.configure(max_bytes=max_bytes, max_entries=max_entries)
+
+    def configure(self, *, max_bytes: int, max_entries: int) -> None:
+        if (
+            type(max_bytes) is not int
+            or type(max_entries) is not int
+            or min(max_bytes, max_entries) < 1
+        ):
+            raise ValueError("cache limits must be positive integers")
+        with self._lock:
+            self.max_bytes, self.max_entries = max_bytes, max_entries
+            self._items: OrderedDict[Hashable, tuple[tuple, int]] = OrderedDict()
+            self._bytes = self.hits = self.misses = self.evictions = 0
+
+    def clear(self) -> None:
+        self.configure(max_bytes=self.max_bytes, max_entries=self.max_entries)
+
+    def get(self, key: Hashable, factory: Callable[[], tuple], estimated_bytes: int) -> tuple:
+        with self._lock:
+            if key in self._items:
+                self.hits += 1
+                value, _ = self._items.pop(key)
+                self._items[key] = (value, _)
+                return value
+            self.misses += 1
+            if estimated_bytes > self.max_bytes:
+                raise ValueError(
+                    "suffix_table_budget_exceeded; count-only does not require this table"
+                )
+            value = factory()
+            pending = [value]
+            seen: set[int] = set()
+            size = 0
+            while pending:
+                item = pending.pop()
+                if id(item) in seen:
+                    continue
+                seen.add(id(item))
+                size += sys.getsizeof(item)
+                if isinstance(item, tuple):
+                    pending.extend(item)
+            if size > self.max_bytes:
+                raise ValueError("suffix_table_budget_exceeded after exact object-size accounting")
+            while self._items and (
+                self._bytes + size > self.max_bytes or len(self._items) >= self.max_entries
+            ):
+                _, (_, removed) = self._items.popitem(last=False)
+                self._bytes -= removed
+                self.evictions += 1
+            self._items[key] = (value, size)
+            self._bytes += size
+            return value
+
+    def info(self) -> dict[str, int]:
+        with self._lock:
+            return {
+                "hits": self.hits,
+                "misses": self.misses,
+                "evictions": self.evictions,
+                "entries": len(self._items),
+                "retained_bytes": self._bytes,
+                "max_bytes": self.max_bytes,
+                "max_entries": self.max_entries,
+            }
+
+
+EXACT_TABLE_CACHE = ExactTableCache()
+
+
+def cache_info() -> dict[str, int]:
+    return EXACT_TABLE_CACHE.info()
+
+
+def clear_caches() -> None:
+    EXACT_TABLE_CACHE.clear()
+
+
+def table_size_upper_bound(layers: int, cells_per_layer: int, bits_per_layer: int) -> int:
+    """Conservative allocation guard, not a branch-count approximation."""
+    return 64 + layers * (64 + cells_per_layer * (64 + (layers * bits_per_layer + 7) // 8))
+
+
 def right_sft_count_fast(length: int) -> int:
     """Count right-endpoint words by exact binary matrix powering.
 
@@ -27,7 +122,7 @@ def right_sft_count_fast(length: int) -> int:
     rows when only a very large finite-block rate is needed.
     """
 
-    if length < 1:
+    if type(length) is not int or length < 1:
         raise ValueError("SFT words must have positive length")
     if length == 1:
         return 4
@@ -59,7 +154,12 @@ def right_sft_count_fast(length: int) -> int:
 
 
 def fixed_base_unrank(index: int, base: int, length: int) -> Word:
-    if base < 2 or length < 0 or not 0 <= index < base**length:
+    if (
+        any(type(value) is not int for value in (index, base, length))
+        or base < 2
+        or length < 0
+        or not 0 <= index < base**length
+    ):
         raise ValueError("index is outside the fixed-base codebook")
     digits = [0] * length
     for position in range(length - 1, -1, -1):
@@ -68,9 +168,11 @@ def fixed_base_unrank(index: int, base: int, length: int) -> Word:
 
 
 def fixed_base_rank(word: Sequence[int], base: int) -> int:
+    if type(base) is not int or base < 2:
+        raise ValueError("base must be an integer >=2")
     result = 0
     for symbol in word:
-        if not 0 <= int(symbol) < base:
+        if type(symbol) is not int or not 0 <= symbol < base:
             raise ValueError("word contains a symbol outside the requested base")
         result = result * base + int(symbol)
     return result
@@ -81,10 +183,13 @@ class SFTEnumerator:
     adjacency: tuple[tuple[int, ...], ...]
 
     def __post_init__(self) -> None:
+        object.__setattr__(self, "adjacency", tuple(tuple(row) for row in self.adjacency))
         size = len(self.adjacency)
         if size < 1 or any(len(row) != size for row in self.adjacency):
             raise ValueError("adjacency must be nonempty and square")
-        if any(value not in (0, 1) for row in self.adjacency for value in row):
+        if any(
+            type(value) is not int or value not in (0, 1) for row in self.adjacency for value in row
+        ):
             raise ValueError("adjacency must be binary")
 
     @property
@@ -94,17 +199,31 @@ class SFTEnumerator:
     def suffix_counts(self, length: int) -> tuple[tuple[int, ...], ...]:
         """Return counts indexed by remaining edge count and current state."""
 
-        if length < 1:
+        if type(length) is not int or length < 1:
             raise ValueError("SFT words must have positive length")
-        rows: list[tuple[int, ...]] = [(1,) * self.alphabet_size]
-        for _ in range(length - 1):
-            previous = rows[-1]
-            current = tuple(
-                sum(self.adjacency[state][nxt] * previous[nxt] for nxt in range(self.alphabet_size))
-                for state in range(self.alphabet_size)
-            )
-            rows.append(current)
-        return tuple(rows)
+
+        def build() -> tuple[tuple[int, ...], ...]:
+            rows: list[tuple[int, ...]] = [(1,) * self.alphabet_size]
+            for _ in range(length - 1):
+                previous = rows[-1]
+                rows.append(
+                    tuple(
+                        sum(
+                            self.adjacency[state][nxt] * previous[nxt]
+                            for nxt in range(self.alphabet_size)
+                        )
+                        for state in range(self.alphabet_size)
+                    )
+                )
+            return tuple(rows)
+
+        return EXACT_TABLE_CACHE.get(
+            ("sft", self.adjacency, length),
+            build,
+            table_size_upper_bound(
+                length, self.alphabet_size, (self.alphabet_size - 1).bit_length()
+            ),
+        )
 
     def count(self, length: int) -> int:
         counts = self.suffix_counts(length)
@@ -113,7 +232,7 @@ class SFTEnumerator:
     def unrank(self, index: int, length: int) -> Word:
         counts = self.suffix_counts(length)
         total = sum(counts[length - 1])
-        if not 0 <= index < total:
+        if type(index) is not int or not 0 <= index < total:
             raise ValueError("index is outside the SFT codebook")
 
         result: list[int] = []
@@ -146,10 +265,12 @@ class SFTEnumerator:
         return tuple(result)
 
     def rank(self, word: Sequence[int]) -> int:
-        sequence = tuple(int(symbol) for symbol in word)
+        sequence = tuple(word)
         if not sequence:
             raise ValueError("SFT words must have positive length")
-        if any(not 0 <= symbol < self.alphabet_size for symbol in sequence):
+        if any(
+            type(symbol) is not int or not 0 <= symbol < self.alphabet_size for symbol in sequence
+        ):
             raise ValueError("word contains a symbol outside the SFT alphabet")
         if any(not self.adjacency[left][right] for left, right in zip(sequence, sequence[1:])):
             raise ValueError("word violates the SFT adjacency")
@@ -182,6 +303,12 @@ class SegmentedDNAEncoder:
     m: int = 2
 
     def __post_init__(self) -> None:
+        if (
+            any(type(value) is not int for value in (self.n, self.k, self.m))
+            or self.n < 0
+            or self.k < 0
+        ):
+            raise ValueError("n,k,m must be integers with n,k>=0")
         if self.m != 2:
             raise ValueError("the certified segmented encoder currently supports DNA m=2")
         _, distance, r, free = decomposition_parameters(self.n, self.m, self.k)
@@ -189,6 +316,13 @@ class SegmentedDNAEncoder:
             raise ValueError("requires r>=0 and 2(m+k)>=n")
         if distance > self.n:
             raise ValueError("use the vacuous full-alphabet encoder when m+k>n")
+        ell = self.endpoint_length
+        object.__setattr__(self, "_left_count", len(LEFT_ALPHABET) ** ell)
+        object.__setattr__(self, "_middle_count", 4**self.free_length)
+        object.__setattr__(self, "_right_count", right_sft_count_fast(ell))
+        object.__setattr__(
+            self, "_codebook_size", self._left_count * self._middle_count * self._right_count
+        )
 
     @property
     def distance(self) -> int:
@@ -204,22 +338,27 @@ class SegmentedDNAEncoder:
 
     @property
     def left_count(self) -> int:
-        return len(LEFT_ALPHABET) ** self.endpoint_length
+        return self._left_count
 
     @property
     def middle_count(self) -> int:
-        return 4**self.free_length
+        return self._middle_count
 
     @property
     def right_count(self) -> int:
-        return right_sft_count_fast(self.endpoint_length)
+        return self._right_count
 
     @property
     def codebook_size(self) -> int:
-        return self.left_count * self.middle_count * self.right_count
+        return self._codebook_size
+
+    def prepare(self) -> "SegmentedDNAEncoder":
+        """Explicitly warm the immutable suffix table; count-only stays lazy."""
+        RIGHT_ENUMERATOR.suffix_counts(self.endpoint_length)
+        return self
 
     def encode_index(self, index: int) -> Word:
-        if not 0 <= index < self.codebook_size:
+        if type(index) is not int or not 0 <= index < self.codebook_size:
             raise ValueError("index is outside the segmented codebook")
         left_index, remainder = divmod(index, self.middle_count * self.right_count)
         middle_index, right_index = divmod(remainder, self.right_count)
@@ -233,7 +372,9 @@ class SegmentedDNAEncoder:
         return result
 
     def decode_index(self, word: Sequence[int]) -> int:
-        sequence = tuple(int(symbol) for symbol in word)
+        sequence = tuple(word)
+        if any(type(symbol) is not int or not 0 <= symbol < 4 for symbol in sequence):
+            raise ValueError("word contains an invalid DNA symbol")
         if len(sequence) != self.n:
             raise ValueError("word length does not match the encoder")
         ell = self.endpoint_length

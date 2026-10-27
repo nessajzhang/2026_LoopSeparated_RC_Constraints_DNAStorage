@@ -1,0 +1,1010 @@
+[
+  {
+    "GC_fraction": 0.12,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 50,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).....................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 100,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n100_m6_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.12,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 50,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).....................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 100,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n100_m6_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.12,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 75,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).....................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 100,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n100_m6_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.12,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 75,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).....................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 100,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n100_m6_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.14,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 50,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...)))))))...................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 100,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n100_m7_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.14,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 50,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...)))))))...................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 100,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n100_m7_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.14,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 75,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...)))))))...................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 100,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n100_m7_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.14,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 75,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...)))))))...................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 100,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n100_m7_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.08,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 75,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).......................................................................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 150,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n150_m6_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.08,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 75,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).......................................................................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 150,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n150_m6_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.08,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 112,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).......................................................................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 150,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n150_m6_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.08,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 112,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).......................................................................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 150,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n150_m6_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.09333333333333334,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 75,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...))))))).....................................................................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 150,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n150_m7_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.09333333333333334,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 75,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...))))))).....................................................................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 150,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n150_m7_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.09333333333333334,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 112,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...))))))).....................................................................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 150,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n150_m7_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.09333333333333334,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 112,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...))))))).....................................................................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 150,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n150_m7_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.06,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 100,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).........................................................................................................................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 200,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n200_m6_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.06,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 100,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).........................................................................................................................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 200,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n200_m6_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.06,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 150,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).........................................................................................................................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 200,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n200_m6_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.06,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 150,
+    "m": 6,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 6,
+    "method": null,
+    "mfe": -6.699999809265137,
+    "mfe_structure": "((((((...)))))).........................................................................................................................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 200,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n200_m6_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGAAACCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.07,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 100,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...))))))).......................................................................................................................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 200,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n200_m7_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.07,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 100,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...))))))).......................................................................................................................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 200,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n200_m7_a0.5",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.07,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 150,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...))))))).......................................................................................................................................................................................",
+    "model_id": "T37_S1.021_default",
+    "n": 200,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n200_m7_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  },
+  {
+    "GC_fraction": 0.07,
+    "GT_pair_probability_mass": null,
+    "WC_m_subruns_at_or_above_k": 0,
+    "arm": "witness",
+    "ensemble_paired_fraction": null,
+    "file_id": null,
+    "full_constraint_valid": true,
+    "generation_status": "OK",
+    "has_GT_m_subrun": false,
+    "has_WC_m_subrun": true,
+    "has_WC_m_subrun_below_k": true,
+    "has_WC_qualifying_true_hairpin_span_3to12": true,
+    "has_qualifying_true_hairpin_span_3to12": true,
+    "has_stem_ge_m": true,
+    "k": 150,
+    "m": 7,
+    "m_subrun_WC_flags": [
+      true
+    ],
+    "m_subrun_gaps": [
+      3
+    ],
+    "max_stem": 7,
+    "method": null,
+    "mfe": -8.5,
+    "mfe_structure": "(((((((...))))))).......................................................................................................................................................................................",
+    "model_id": "T37_S1.021_WC",
+    "n": 200,
+    "pair_id": null,
+    "qualifying_stem_terminal_spans": [
+      3
+    ],
+    "qualifying_stem_true_hairpin": [
+      true
+    ],
+    "role": null,
+    "row_id": "W_n200_m7_a0.75",
+    "seed": null,
+    "sequence": "GGGGGGGAAACCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": "OK"
+  }
+]

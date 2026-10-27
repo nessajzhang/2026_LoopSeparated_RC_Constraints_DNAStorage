@@ -1,0 +1,58 @@
+{
+  "schema": "loop-separated-ids-benchmark-v1",
+  "phase": "FORMAL_FROZEN",
+  "seeds": [
+    20261023111,
+    20261023122,
+    20261023133
+  ],
+  "files_per_seed": 32,
+  "protocol": {
+    "n": 150,
+    "m": 7,
+    "k": 3,
+    "rs_n": 63,
+    "rs_k": 55,
+    "nonce_budget": 16
+  },
+  "methods": [
+    "gc_h_nonce",
+    "nonce"
+  ],
+  "receiver_timeout_seconds": 120,
+  "primary_comparison_family_size": 48,
+  "grid": [
+    {
+      "channel": "mixed",
+      "error_scale": 0.005,
+      "coverage": 1,
+      "coverage_mode": "fixed",
+      "dropout": 0,
+      "primary": false
+    },
+    {
+      "channel": "mixed",
+      "error_scale": 0.005,
+      "coverage": 3,
+      "coverage_mode": "fixed",
+      "dropout": 0,
+      "primary": false
+    },
+    {
+      "channel": "mixed",
+      "error_scale": 0.01,
+      "coverage": 1,
+      "coverage_mode": "fixed",
+      "dropout": 0,
+      "primary": false
+    },
+    {
+      "channel": "mixed",
+      "error_scale": 0.01,
+      "coverage": 3,
+      "coverage_mode": "fixed",
+      "dropout": 0,
+      "primary": false
+    }
+  ]
+}

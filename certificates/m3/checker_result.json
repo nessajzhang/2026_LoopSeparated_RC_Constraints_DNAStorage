@@ -1,0 +1,15 @@
+{
+  "actual_uperp_required_letter": "A",
+  "binary_masks_checked": 256,
+  "canonical_certificate_sha256": "78880e0c39a97b89f80e325221e4d4ce355e086c4dd357a7184f68885c8ef7ff",
+  "certificate_file_sha256": "58c3addecef28267c6bf4282cab483231e444e17648be867f70a0d87ad9f1804",
+  "dna_assignments_exhaustively_enumerated": false,
+  "dna_product_lower": 9,
+  "dna_product_upper": 9,
+  "formal_proof_assistant": false,
+  "global_conclusion_basis": "human-readable analytic theorem plus exact integer witness",
+  "ordinary_complement_required_letter": "T",
+  "proof_sha256": "fdde4a01b4640a6b79d759a5668a16bb9544048c8bd966058fc11ad005f11498",
+  "rc_single_edge_bases_checked": 64,
+  "status": "EXACT_FINITE_CHECKS_PASS_ANALYTIC_PROOF_REQUIRED"
+}

@@ -1,0 +1,986 @@
+[
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.17840634603234948,
+      0.2634905194248515
+    ],
+    "has_WC_m_subrun_events": 84,
+    "has_WC_m_subrun_fraction": 0.21875,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.06430848622396589,
+      0.12448086944945044
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 35,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.09114583333333333,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.06430848622396589,
+      0.12448086944945044
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 35,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.09114583333333333,
+    "has_stem_ge_m_CI95": [
+      0.17840634603234948,
+      0.2634905194248515
+    ],
+    "has_stem_ge_m_events": 84,
+    "has_stem_ge_m_fraction": 0.21875,
+    "k": 50,
+    "m": 6,
+    "model": "T37_S1.021_WC",
+    "n": 100
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.05332927933902914,
+      0.10965102534337298
+    ],
+    "has_GT_m_subrun_events": 30,
+    "has_GT_m_subrun_fraction": 0.078125,
+    "has_WC_m_subrun_CI95": [
+      0.18322616023280472,
+      0.2690045573320334
+    ],
+    "has_WC_m_subrun_events": 86,
+    "has_WC_m_subrun_fraction": 0.22395833333333334,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.057697127357457224,
+      0.1156058839490176
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 32,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.08333333333333333,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.09820985975102678,
+      0.16803831944087433
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 50,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.13020833333333334,
+    "has_stem_ge_m_CI95": [
+      0.23190443706663907,
+      0.3236699585891675
+    ],
+    "has_stem_ge_m_events": 106,
+    "has_stem_ge_m_fraction": 0.2760416666666667,
+    "k": 50,
+    "m": 6,
+    "model": "T37_S1.021_default",
+    "n": 100
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.75,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.30381205154830454,
+      0.40162150944693126
+    ],
+    "has_WC_m_subrun_events": 135,
+    "has_WC_m_subrun_fraction": 0.3515625,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.062097189678926856,
+      0.12152977563128387
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 34,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.08854166666666667,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.062097189678926856,
+      0.12152977563128387
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 34,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.08854166666666667,
+    "has_stem_ge_m_CI95": [
+      0.30381205154830454,
+      0.40162150944693126
+    ],
+    "has_stem_ge_m_events": 135,
+    "has_stem_ge_m_fraction": 0.3515625,
+    "k": 75,
+    "m": 6,
+    "model": "T37_S1.021_WC",
+    "n": 100
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.75,
+    "has_GT_m_subrun_CI95": [
+      0.1735961078925576,
+      0.2579670225913839
+    ],
+    "has_GT_m_subrun_events": 82,
+    "has_GT_m_subrun_fraction": 0.21354166666666666,
+    "has_WC_m_subrun_CI95": [
+      0.3088219696578221,
+      0.4069470071532822
+    ],
+    "has_WC_m_subrun_events": 137,
+    "has_WC_m_subrun_fraction": 0.3567708333333333,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.051158351387977086,
+      0.10666113156158463
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 29,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.07552083333333333,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.13549340529398804,
+      0.21340510407899724
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 66,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.171875,
+    "has_stem_ge_m_CI95": [
+      0.4359526202576547,
+      0.5382079129022175
+    ],
+    "has_stem_ge_m_events": 187,
+    "has_stem_ge_m_fraction": 0.4869791666666667,
+    "k": 75,
+    "m": 6,
+    "model": "T37_S1.021_default",
+    "n": 100
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.03004903434671316,
+      0.07619159723622133
+    ],
+    "has_WC_m_subrun_events": 19,
+    "has_WC_m_subrun_fraction": 0.049479166666666664,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.002845280558187438,
+      0.026454716344783732
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 4,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.010416666666666666,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.002845280558187438,
+      0.026454716344783732
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 4,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.010416666666666666,
+    "has_stem_ge_m_CI95": [
+      0.03004903434671316,
+      0.07619159723622133
+    ],
+    "has_stem_ge_m_events": 19,
+    "has_stem_ge_m_fraction": 0.049479166666666664,
+    "k": 50,
+    "m": 7,
+    "model": "T37_S1.021_WC",
+    "n": 100
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.036248949287870015,
+      0.08545813674201123
+    ],
+    "has_GT_m_subrun_events": 22,
+    "has_GT_m_subrun_fraction": 0.057291666666666664,
+    "has_WC_m_subrun_CI95": [
+      0.028014310707706606,
+      0.073072850686749
+    ],
+    "has_WC_m_subrun_events": 18,
+    "has_WC_m_subrun_fraction": 0.046875,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.002845280558187438,
+      0.026454716344783732
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 4,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.010416666666666666,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.016249503951793528,
+      0.05395081099310676
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 12,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.03125,
+    "has_stem_ge_m_CI95": [
+      0.07322231417181096,
+      0.13621895240888068
+    ],
+    "has_stem_ge_m_events": 39,
+    "has_stem_ge_m_fraction": 0.1015625,
+    "k": 50,
+    "m": 7,
+    "model": "T37_S1.021_default",
+    "n": 100
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.75,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.0665269045874258,
+      0.12742509215802592
+    ],
+    "has_WC_m_subrun_events": 36,
+    "has_WC_m_subrun_fraction": 0.09375,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.01814671345908628,
+      0.05719593984260626
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 13,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.033854166666666664,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.01814671345908628,
+      0.05719593984260626
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 13,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.033854166666666664,
+    "has_stem_ge_m_CI95": [
+      0.0665269045874258,
+      0.12742509215802592
+    ],
+    "has_stem_ge_m_events": 36,
+    "has_stem_ge_m_fraction": 0.09375,
+    "k": 75,
+    "m": 7,
+    "model": "T37_S1.021_WC",
+    "n": 100
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.75,
+    "has_GT_m_subrun_CI95": [
+      0.0665269045874258,
+      0.12742509215802592
+    ],
+    "has_GT_m_subrun_events": 36,
+    "has_GT_m_subrun_fraction": 0.09375,
+    "has_WC_m_subrun_CI95": [
+      0.0665269045874258,
+      0.12742509215802592
+    ],
+    "has_WC_m_subrun_events": 36,
+    "has_WC_m_subrun_fraction": 0.09375,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.016249503951793528,
+      0.05395081099310676
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 12,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.03125,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.048996638608379356,
+      0.10366241712704949
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 28,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.07291666666666667,
+    "has_stem_ge_m_CI95": [
+      0.13785328642176126,
+      0.21621143098192822
+    ],
+    "has_stem_ge_m_events": 67,
+    "has_stem_ge_m_fraction": 0.17447916666666666,
+    "k": 75,
+    "m": 7,
+    "model": "T37_S1.021_default",
+    "n": 100
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.2863266288732402,
+      0.3829332269201318
+    ],
+    "has_WC_m_subrun_events": 128,
+    "has_WC_m_subrun_fraction": 0.3333333333333333,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.07546672580273374,
+      0.13913803383031845
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 40,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.10416666666666667,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.07546672580273374,
+      0.13913803383031845
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 40,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.10416666666666667,
+    "has_stem_ge_m_CI95": [
+      0.2863266288732402,
+      0.3829332269201318
+    ],
+    "has_stem_ge_m_events": 128,
+    "has_stem_ge_m_fraction": 0.3333333333333333,
+    "k": 75,
+    "m": 6,
+    "model": "T37_S1.021_WC",
+    "n": 150
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.10281603577237335,
+      0.17376229481560398
+    ],
+    "has_GT_m_subrun_events": 52,
+    "has_GT_m_subrun_fraction": 0.13541666666666666,
+    "has_WC_m_subrun_CI95": [
+      0.2763702242121034,
+      0.3722191380960815
+    ],
+    "has_WC_m_subrun_events": 124,
+    "has_WC_m_subrun_fraction": 0.3229166666666667,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.06875217842055789,
+      0.130362693616192
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 37,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.09635416666666667,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.11673302386740467,
+      0.19083793597931864
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 58,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.15104166666666666,
+    "has_stem_ge_m_CI95": [
+      0.34911785458289973,
+      0.4493353698355072
+    ],
+    "has_stem_ge_m_events": 153,
+    "has_stem_ge_m_fraction": 0.3984375,
+    "k": 75,
+    "m": 6,
+    "model": "T37_S1.021_default",
+    "n": 150
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.7466666666666667,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.47736051474745006,
+      0.5794862935564399
+    ],
+    "has_WC_m_subrun_events": 203,
+    "has_WC_m_subrun_fraction": 0.5286458333333334,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.12374248162743846,
+      0.19932583338236176
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 61,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.15885416666666666,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.12374248162743846,
+      0.19932583338236176
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 61,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.15885416666666666,
+    "has_stem_ge_m_CI95": [
+      0.47736051474745006,
+      0.5794862935564399
+    ],
+    "has_stem_ge_m_events": 203,
+    "has_stem_ge_m_fraction": 0.5286458333333334,
+    "k": 112,
+    "m": 6,
+    "model": "T37_S1.021_WC",
+    "n": 150
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.7466666666666667,
+    "has_GT_m_subrun_CI95": [
+      0.3163483442673489,
+      0.41492380991346706
+    ],
+    "has_GT_m_subrun_events": 140,
+    "has_GT_m_subrun_fraction": 0.3645833333333333,
+    "has_WC_m_subrun_CI95": [
+      0.47736051474745006,
+      0.5794862935564399
+    ],
+    "has_WC_m_subrun_events": 203,
+    "has_WC_m_subrun_fraction": 0.5286458333333334,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.1051255214908479,
+      0.17661803115614882
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 53,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.13802083333333334,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.22700003851697206,
+      0.3182396393498509
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 104,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.2708333333333333,
+    "has_stem_ge_m_CI95": [
+      0.6439014687358127,
+      0.7385146022306923
+    ],
+    "has_stem_ge_m_events": 266,
+    "has_stem_ge_m_fraction": 0.6927083333333334,
+    "k": 112,
+    "m": 6,
+    "model": "T37_S1.021_default",
+    "n": 150
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.09820985975102678,
+      0.16803831944087433
+    ],
+    "has_WC_m_subrun_events": 50,
+    "has_WC_m_subrun_fraction": 0.13020833333333334,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.022024987471386512,
+      0.0636099504290347
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 15,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.0390625,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.022024987471386512,
+      0.0636099504290347
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 15,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.0390625,
+    "has_stem_ge_m_CI95": [
+      0.09820985975102678,
+      0.16803831944087433
+    ],
+    "has_stem_ge_m_events": 50,
+    "has_stem_ge_m_fraction": 0.13020833333333334,
+    "k": 75,
+    "m": 7,
+    "model": "T37_S1.021_WC",
+    "n": 150
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.06875217842055789,
+      0.130362693616192
+    ],
+    "has_GT_m_subrun_events": 37,
+    "has_GT_m_subrun_fraction": 0.09635416666666667,
+    "has_WC_m_subrun_CI95": [
+      0.09591338633485055,
+      0.16516987314340587
+    ],
+    "has_WC_m_subrun_events": 49,
+    "has_WC_m_subrun_fraction": 0.12760416666666666,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.01814671345908628,
+      0.05719593984260626
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 13,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.033854166666666664,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.046844600445487584,
+      0.10065445735997121
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 27,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.0703125,
+    "has_stem_ge_m_CI95": [
+      0.16639926799807098,
+      0.24966349601801857
+    ],
+    "has_stem_ge_m_events": 79,
+    "has_stem_ge_m_fraction": 0.20572916666666666,
+    "k": 75,
+    "m": 7,
+    "model": "T37_S1.021_default",
+    "n": 150
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.7466666666666667,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.16639926799807098,
+      0.24966349601801857
+    ],
+    "has_WC_m_subrun_events": 79,
+    "has_WC_m_subrun_fraction": 0.20572916666666666,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.03004903434671316,
+      0.07619159723622133
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 19,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.049479166666666664,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.03004903434671316,
+      0.07619159723622133
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 19,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.049479166666666664,
+    "has_stem_ge_m_CI95": [
+      0.16639926799807098,
+      0.24966349601801857
+    ],
+    "has_stem_ge_m_events": 79,
+    "has_stem_ge_m_fraction": 0.20572916666666666,
+    "k": 112,
+    "m": 7,
+    "model": "T37_S1.021_WC",
+    "n": 150
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.7466666666666667,
+    "has_GT_m_subrun_CI95": [
+      0.17840634603234948,
+      0.2634905194248515
+    ],
+    "has_GT_m_subrun_events": 84,
+    "has_GT_m_subrun_fraction": 0.21875,
+    "has_WC_m_subrun_CI95": [
+      0.17600001439051322,
+      0.26072996848957286
+    ],
+    "has_WC_m_subrun_events": 83,
+    "has_WC_m_subrun_fraction": 0.21614583333333334,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.03004903434671316,
+      0.07619159723622133
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 19,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.049479166666666664,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.09591338633485055,
+      0.16516987314340587
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 49,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.12760416666666666,
+    "has_stem_ge_m_CI95": [
+      0.3238883430080838,
+      0.42288704853424697
+    ],
+    "has_stem_ge_m_events": 143,
+    "has_stem_ge_m_fraction": 0.3723958333333333,
+    "k": 112,
+    "m": 7,
+    "model": "T37_S1.021_default",
+    "n": 150
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.4488555037022697,
+      0.5511444962977303
+    ],
+    "has_WC_m_subrun_events": 192,
+    "has_WC_m_subrun_fraction": 0.5,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.11440381346755388,
+      0.18800150444913313
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 57,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.1484375,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.11440381346755388,
+      0.18800150444913313
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 57,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.1484375,
+    "has_stem_ge_m_CI95": [
+      0.4488555037022697,
+      0.5511444962977303
+    ],
+    "has_stem_ge_m_events": 192,
+    "has_stem_ge_m_fraction": 0.5,
+    "k": 100,
+    "m": 6,
+    "model": "T37_S1.021_WC",
+    "n": 200
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.15922548339056988,
+      0.24133722224124657
+    ],
+    "has_GT_m_subrun_events": 76,
+    "has_GT_m_subrun_fraction": 0.19791666666666666,
+    "has_WC_m_subrun_CI95": [
+      0.45661340951434154,
+      0.5588902714398363
+    ],
+    "has_WC_m_subrun_events": 195,
+    "has_WC_m_subrun_fraction": 0.5078125,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.10975678371548916,
+      0.18231748396360464
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 55,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.14322916666666666,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.16639926799807098,
+      0.24966349601801857
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 79,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.20572916666666666,
+    "has_stem_ge_m_CI95": [
+      0.5453923249404864,
+      0.6458188241637488
+    ],
+    "has_stem_ge_m_events": 229,
+    "has_stem_ge_m_fraction": 0.5963541666666666,
+    "k": 100,
+    "m": 6,
+    "model": "T37_S1.021_default",
+    "n": 200
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.75,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.609048069526906,
+      0.7061891082926498
+    ],
+    "has_WC_m_subrun_events": 253,
+    "has_WC_m_subrun_fraction": 0.6588541666666666,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.14969809082481703,
+      0.23019840462671198
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 72,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.1875,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.14969809082481703,
+      0.23019840462671198
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 72,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.1875,
+    "has_stem_ge_m_CI95": [
+      0.609048069526906,
+      0.7061891082926498
+    ],
+    "has_stem_ge_m_events": 253,
+    "has_stem_ge_m_fraction": 0.6588541666666666,
+    "k": 150,
+    "m": 6,
+    "model": "T37_S1.021_WC",
+    "n": 200
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.75,
+    "has_GT_m_subrun_CI95": [
+      0.41024818555950426,
+      0.5122334672830057
+    ],
+    "has_GT_m_subrun_events": 177,
+    "has_GT_m_subrun_fraction": 0.4609375,
+    "has_WC_m_subrun_CI95": [
+      0.6037101615836904,
+      0.7011916628342215
+    ],
+    "has_WC_m_subrun_events": 251,
+    "has_WC_m_subrun_fraction": 0.6536458333333334,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.13785328642176126,
+      0.21621143098192822
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 67,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.17447916666666666,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.26148539776930774,
+      0.3560985312641871
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 118,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.3072916666666667,
+    "has_stem_ge_m_CI95": [
+      0.7670127938836019,
+      0.8479242192763444
+    ],
+    "has_stem_ge_m_events": 311,
+    "has_stem_ge_m_fraction": 0.8098958333333334,
+    "k": 150,
+    "m": 6,
+    "model": "T37_S1.021_default",
+    "n": 200
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.13078315821546754,
+      0.20778309774866924
+    ],
+    "has_WC_m_subrun_events": 64,
+    "has_WC_m_subrun_fraction": 0.16666666666666666,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.03004903434671316,
+      0.07619159723622133
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 19,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.049479166666666664,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.03004903434671316,
+      0.07619159723622133
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 19,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.049479166666666664,
+    "has_stem_ge_m_CI95": [
+      0.13078315821546754,
+      0.20778309774866924
+    ],
+    "has_stem_ge_m_events": 64,
+    "has_stem_ge_m_fraction": 0.16666666666666666,
+    "k": 100,
+    "m": 7,
+    "model": "T37_S1.021_WC",
+    "n": 200
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.5,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.5,
+    "has_GT_m_subrun_CI95": [
+      0.07546672580273374,
+      0.13913803383031845
+    ],
+    "has_GT_m_subrun_events": 40,
+    "has_GT_m_subrun_fraction": 0.10416666666666667,
+    "has_WC_m_subrun_CI95": [
+      0.14258228422109814,
+      0.2218150021276917
+    ],
+    "has_WC_m_subrun_events": 69,
+    "has_WC_m_subrun_fraction": 0.1796875,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.02599765595050388,
+      0.0699372727873614
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 17,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.044270833333333336,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.048996638608379356,
+      0.10366241712704949
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 28,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.07291666666666667,
+    "has_stem_ge_m_CI95": [
+      0.21233364216073158,
+      0.30190229822936243
+    ],
+    "has_stem_ge_m_events": 98,
+    "has_stem_ge_m_fraction": 0.2552083333333333,
+    "k": 100,
+    "m": 7,
+    "model": "T37_S1.021_default",
+    "n": 200
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.75,
+    "has_GT_m_subrun_CI95": [
+      0.0,
+      0.0095604623041242
+    ],
+    "has_GT_m_subrun_events": 0,
+    "has_GT_m_subrun_fraction": 0.0,
+    "has_WC_m_subrun_CI95": [
+      0.3088219696578221,
+      0.4069470071532822
+    ],
+    "has_WC_m_subrun_events": 137,
+    "has_WC_m_subrun_fraction": 0.3567708333333333,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.04257160472612004,
+      0.09460890729152766
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 25,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.06510416666666667,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.04257160472612004,
+      0.09460890729152766
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 25,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.06510416666666667,
+    "has_stem_ge_m_CI95": [
+      0.3088219696578221,
+      0.4069470071532822
+    ],
+    "has_stem_ge_m_events": 137,
+    "has_stem_ge_m_fraction": 0.3567708333333333,
+    "k": 150,
+    "m": 7,
+    "model": "T37_S1.021_WC",
+    "n": 200
+  },
+  {
+    "N_encoded_words": 384,
+    "WC_m_subruns_at_or_above_k": 0,
+    "alpha": 0.75,
+    "binary_message_distribution": "uniform bits;first2^K;not uniform M",
+    "finite_k_over_n": 0.75,
+    "has_GT_m_subrun_CI95": [
+      0.2664402526930037,
+      0.36147877704286363
+    ],
+    "has_GT_m_subrun_events": 120,
+    "has_GT_m_subrun_fraction": 0.3125,
+    "has_WC_m_subrun_CI95": [
+      0.3088219696578221,
+      0.4069470071532822
+    ],
+    "has_WC_m_subrun_events": 137,
+    "has_WC_m_subrun_fraction": 0.3567708333333333,
+    "has_WC_qualifying_true_hairpin_span_3to12_CI95": [
+      0.03834400420276451,
+      0.0885202241968489
+    ],
+    "has_WC_qualifying_true_hairpin_span_3to12_events": 23,
+    "has_WC_qualifying_true_hairpin_span_3to12_fraction": 0.059895833333333336,
+    "has_qualifying_true_hairpin_span_3to12_CI95": [
+      0.12140243339086124,
+      0.1965000279340923
+    ],
+    "has_qualifying_true_hairpin_span_3to12_events": 60,
+    "has_qualifying_true_hairpin_span_3to12_fraction": 0.15625,
+    "has_stem_ge_m_CI95": [
+      0.516495612530385,
+      0.6178693111954232
+    ],
+    "has_stem_ge_m_events": 218,
+    "has_stem_ge_m_fraction": 0.5677083333333334,
+    "k": 150,
+    "m": 7,
+    "model": "T37_S1.021_default",
+    "n": 200
+  }
+]

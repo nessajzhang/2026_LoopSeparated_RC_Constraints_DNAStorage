@@ -1,0 +1,15 @@
+{
+  "schema": "theory-endpoint-finite-block-v1",
+  "q": 4,
+  "m": 3,
+  "alphabet": "ACGT",
+  "theta": [3, 2, 1, 0],
+  "U": "{A,C,G}^3",
+  "n_values": [100, 150, 200, 300],
+  "alpha_values": [0.5, 0.6, 0.75, 0.9, 1.0],
+  "seeds": [20261023, 71, 193],
+  "cold_repeats": 5,
+  "payloads_each_seed": 8,
+  "cpu_limit": 1,
+  "scope": "exact product-subcode counts/K and prepared noiseless rank/unrank, not a complete triangular codebook, ECC, or formal T25 throughput study"
+}

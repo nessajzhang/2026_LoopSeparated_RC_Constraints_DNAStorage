@@ -1,176 +1,133 @@
-# Loop-separated reverse-complement constraints: reproducibility code
+# Loop-separated reverse-complement constraints
 
-This code-only package contains no manuscript source, author biography,
-affiliation, correspondence address, or unpublished prose. It reproduces the
-proof-supporting computations for loop-separated reverse-complement constraints.
+Executable constrained-sequence mappings, exact spectral certificates, diagnostic
+storage-link simulations and computational structure predictions.
 
-The current audited implementation is organized under `code/`,
-`loop_alpha_audit/`, `tests/`, and `output/`. The `analysis_tools/` directory
-retains the earlier finite-length, SMC, and folding-screen workflows so that
-previous numerical artifacts remain reproducible.
+The current implementation is the **2026-10-27 code-only release**. The earlier
+`318a65699470a29e37332ca5fa0bdb03578d7c7d` commit remains available in history.
+No manuscript, review correspondence, author-contact information or institutional
+account data is distributed in this repository.
 
 ## Environment
 
-- Python 3.12
-- `uv sync`
-- A C++20 compiler with POSIX threads
+Python 3.12 and `uv` are required. Install all computational extras before
+running the full test suite.
 
-## Routine validation
-
-```bash
-uv sync
-uv run pytest -q
-uv run ruff check .
-uv run ruff format --check .
+```sh
+uv sync --frozen --all-extras
+uv run --frozen pytest -q
 ```
 
-## Exact and finite-block computations
+`loop_alpha_audit/` contains the mapping, framing, receiving, channel and
+spectral implementations. Executable drivers are in `code/`; frozen
+computational grids are in `configs/revision/`. Configuration labels describe
+experiment versions, not editorial correspondence.
 
-```bash
-uv run python code/run_exhaustive_consistency_audit.py
-uv run python code/certify_dna_m2_spectral.py
+## Exact spectral checks
 
-clang++ -std=c++20 -O3 -DNDEBUG -Wall -Wextra -pedantic \
-  code/paired_count_dna_m2.cpp -o output/paired_count_dna_m2
-output/paired_count_dna_m2 output/paired_dna_m2_cpp_rates_r5000.csv 5000
-uv run python code/check_paired_cpp_against_python.py \
-  output/paired_dna_m2_cpp_rates_r5000.csv \
-  output/paired_cpp_python_crosscheck_r5000.json
+```sh
+# Independent integer scan of all 65,536 DNA dinucleotide subsets.
+uv run --frozen python code/check_m2_full_domain.py --output output/new_m2_audit
 
-clang++ -std=c++20 -O3 -DNDEBUG -Wall -Wextra -pedantic \
-  code/full_word_definition_audit.cpp -o output/full_word_definition_audit
-output/full_word_definition_audit --extended --threads 10 \
-  --summary output/full_word_definition_audit_extended_10t_summary.json \
-  --csv output/full_word_definition_audit_extended_10t_jobs.csv
+# Produce and independently check the m=3 finite certificate.
+uv run --frozen python code/certify_m3_analytic.py --output-dir output/new_m3_audit
+
+# Check the included m=3 certificate without third-party imports.
+uv run --frozen python -I code/check_m3_analytic_certificate.py \
+  --certificate certificates/m3/certificate.json
 ```
 
-The spectral summary field `certificate_rows_sha256` is the digest of the
-65,536 canonical data rows (header excluded, tab-separated fields, LF line
-endings). It is intentionally distinct from the compressed-TSV file hash
-recorded in `MANIFEST.sha256`.
+Choose new output directories. The m=3 optimum is justified by an analytic
+inequality and its equality witness. The finite checker verifies exact
+identities and the supplied witness; it is not enumeration of all `2^64`
+subsets and is not a proof-assistant formalization. Earlier incomplete search
+code is retained as incomplete-search tooling, not as the global certificate.
 
-The extended profile enumerates actual words rather than occurrence sets. It
-checks every available stem threshold and every finite loop threshold for the
-specified binary, ternary, and quaternary jobs.
+## Actual mappings and receiving
 
-## Broad parameter and encoder computations
+`prepared_codec.py` implements endpoint mappings and their binary interface.
+`short_loop_codec.py` supplies the separate short-cutoff mappings. An endpoint
+mapper requiring a high separation ratio is not used as a short-cutoff codec.
+The storage link adds addresses, CRC checks, observed-read reconstruction and
+outer Reed--Solomon recovery. Inverse enumeration is not error correction.
 
-```bash
-uv run python code/run_segmented_encoder_ultrascale.py
-uv run python code/run_general_m_stress_audit.py
-uv run python code/run_mkn_orbit_stress.py
-uv run python code/make_scaling_evidence_figure.py
+```sh
+# Validate a small diagnostic configuration without launching a simulation.
+uv run --frozen python code/run_ids_benchmark.py \
+  --config configs/revision/ids_pilot_v1.json \
+  --out output/ids_pilot --validate-only
+
+# Run the bounded pilot explicitly, with four worker processes.
+uv run --frozen python code/run_ids_benchmark.py \
+  --config configs/revision/ids_pilot_v1.json \
+  --out output/ids_pilot --jobs 4
+
+# Inspect the measured-cost driver interface.
+uv run --frozen python code/benchmark_codecs.py --help
 ```
 
-Given the row-level ViennaRNA CSV, the Watson--Crick versus wobble-pair
-explanation can be reproduced with the following audit. It checks every
-contiguous length-`m` subrun inside every qualifying predicted stem, rather
-than checking only the maximal run as a whole.
+Large formal configurations enforce source/configuration freezes. Do not remove
+those checks or reinterpret a failed/capped encoding as a successful trial.
+The receiving interface accepts observations and public parameters, not sender
+payloads, original strands or edit histories. Public sequencing-profile drivers
+require their explicitly supplied external simulator/source snapshot; they do
+not silently download data or submit cloud jobs.
 
-```bash
-uv run python code/audit_folding_wobble_runs.py ROW_LEVEL_FOLDING.csv \
-  --assert-manuscript-counts --output output/folding_wobble_audit.json
+The schema and generator wrappers in `reproducibility/profiles/` include the
+bounded source-profile interface tests. Their two small historical CSV fixtures
+retain an observed source-pool overdraw rather than correcting it away.
+The wrappers do not include the external simulator, institutional runtime or
+account settings.
+
+## Source tables and reproducibility
+
+`source_data/20261027/` contains frozen communication, structure-prediction,
+sequencing-profile and mapper-cost tables. It preserves failed trials,
+non-evaluable quantities and null comparisons. The controlled IDS comparisons
+do not establish a FER benefit or equivalence for RC screening. Structure
+predictions are in silico and are not measured biochemical or channel-error
+improvements.
+
+`reproducibility/analysis/` contains the byte-identical statistical builders
+used for these tables. Full intermediate inputs are distributed separately in
+the computational data archive; they are not present in this repository. To
+rebuild tables from an extracted frozen archive while preserving its
+root-relative provenance layout:
+
+```sh
+uv run --frozen python reproducibility/reproduce_tables.py \
+  --bundle /path/to/extracted/computational_bundle \
+  --out /path/to/new_table_rebuild --jobs 4
 ```
 
-## Ancillary SMC and folding workflows
+The wrapper checks source identity before executing the builders inside that
+bundle. This reconstructs tables from saved observations, not all original
+simulations. The larger full-raw archives are a separate layer; a checksum
+receipt alone does not provide their contents.
 
-The earlier large-block SMC, finite-length plotting, and ViennaRNA screen are
-retained under `analysis_tools/`. Their additional dependencies are listed in
-`analysis_tools/requirements.txt` and
-`analysis_tools/requirements_folding.txt`. The frozen finite-length counts,
-selected SMC replicate tables, curated SMC summary, and derived folding summary
-are under `output/`. The exact finite-length and SMC figures can be regenerated
-without rerunning the expensive experiments:
+Plotting source is under `reproducibility/figures_src/`. For example:
 
-```bash
-uv run python analysis_tools/plot_finite_length.py
-uv run python analysis_tools/plot_large_n_smc_audit.py \
-  --out-prefix output/figures/fig_large_n_smc_audit \
-  --m2 output/smc/large_n_smc_m2_fixedk_summary.csv \
-  --validation output/smc/large_n_smc_m2_validation_against_exact.csv \
-  --six-panel
-uv run python analysis_tools/plot_folding_comparison_tcom.py \
-  --comparison output/folding/folding_comparison_len100_150_200_m6_7_s1000.csv \
-  --out output/figures/fig_folding_validation_tcom.pdf \
-  --summary output/folding/folding_bonferroni_newcombe_summary.json
+```sh
+uv run --frozen python reproducibility/figures_src/plot_communication_results.py \
+  --tables source_data/20261027/communication \
+  --qa-scripts reproducibility/figures_src/qa_portable \
+  --out output/new_communication_plot
+uv run --frozen python reproducibility/figures_src/plot_physical_results.py \
+  --tables source_data/20261027/physical \
+  --qa-scripts reproducibility/figures_src/qa_portable \
+  --out output/new_physical_plot
 ```
 
-The Fig. 3 PDF retains vector text, axes, and line art. Its `imshow` heatmap
-and colorbar are embedded at 600 ppi at the generated size.
+The optional two-row vector schematic additionally requires ReportLab and
+PyMuPDF. No rendered manuscript figures or manuscript documents are included.
 
-The selected SMC summary can also be rebuilt from the retained replicate rows:
+## Earlier workflows
 
-```bash
-uv run python analysis_tools/curate_fixedk_smc_summary.py \
-  --base-raw output/smc/large_n_smc_m2_fixedk_selected_base_raw.csv \
-  --k20-short-raw output/smc/large_n_smc_m2_k20_refine_short_raw.csv \
-  --k20-long-raw output/smc/large_n_smc_m2_k20_refine_long_raw.csv \
-  --out output/smc/large_n_smc_m2_fixedk_summary_rebuilt.csv
-```
+Existing `analysis_tools/`, `output/` and `figures/source_data/` retain earlier
+finite-length, SMC and folding computations. Their saved experiments are
+distinct from the new source-table release and must not be pooled as independent
+samples. The exact-certificate row digest is distinct from its compressed-file
+digest; use the explicitly named digest field when checking either.
 
-The full fixed-threshold SMC workflow is started with:
-
-```bash
-bash analysis_tools/run_fixedk_smc_audit.sh
-```
-
-The 1000-sequence-per-group ViennaRNA grid reported by the accompanying study
-used seed `20260629` and requires ViennaRNA 2.7.2. Install the additional
-dependency into the project environment and regenerate the row-level grid with:
-
-```bash
-uv pip install --python .venv/bin/python \
-  -r analysis_tools/requirements_folding.txt
-uv run python analysis_tools/folding_grid.py \
-  --lengths 100,150,200 --m-values 6,7 --k-values 0,3,4,5 \
-  --samples 1000 --seed 20260629 \
-  --gc-low 0.40 --gc-high 0.60 --max-homopolymer 4 \
-  --out output/folding_grid_1000_rows.csv \
-  --summary-out output/folding_grid_1000_summary.csv
-uv run python analysis_tools/summarize_folding_comparison.py \
-  --rows output/folding_grid_1000_rows.csv --m-values 6,7 \
-  --out output/folding_comparison_1000.csv
-uv run python analysis_tools/plot_folding_comparison_tcom.py \
-  --comparison output/folding_comparison_1000.csv \
-  --out output/fig_folding_validation_tcom.pdf \
-  --summary output/folding_bonferroni_newcombe_summary.json
-```
-
-These scripts accept explicit seeds and write generated products under
-`output/`. The row-level folding table is intentionally not committed because
-it is large; the deterministic seed and complete command are recorded above.
-
-## Optional long occurrence-position campaign
-
-The following command is intentionally expensive. It stress-tests the geometric
-interval lemma; it is not a capacity computation.
-
-```bash
-CASES_PER_SEED=2000000000 THREADS=10 \
-  bash code/run_long_orbit_campaign.sh \
-  20260712 20260713 20260717 314159265 271828182
-uv run python code/aggregate_long_orbit_campaign.py
-```
-
-The aggregator accepts either uncompressed `strata_seed_*.csv` files from a new
-run or the compressed `strata_seed_*.csv.gz` files retained in this release.
-
-## Evidence levels
-
-- The DNA `m=2` spectral maximum is an exact rational/symbolic certificate over
-  all 65,536 subsets.
-- The complete paired-endpoint state space is propagated numerically through
-  `r=5000`; an independent exact-integer implementation cross-checks nine
-  checkpoints through `r=12`.
-- The broad-`m` construction audit includes 217 exact finite-length cells over
-  15 stem thresholds through `m=128`, eight linear-threshold ratios, and two
-  block lengths; certified asymptotic cells extend through `m=1024`.
-- General-`m` tables are certified structured lower bounds. For `m>2`, they are
-  not global computations of the spectral maximum.
-- The large `(m,k,n)` rows and occurrence-position campaign stress proof
-  geometry. They are not uniform language samples and not capacity estimates.
-- Numerical checks can reveal implementation or indexing errors but do not
-  replace the universal proofs.
-
-All retained outputs have deterministic parameters or seeds. `MANIFEST.sha256`
-records the public code, tests, and frozen machine-readable artifacts.
+`MANIFEST.sha256` and `PUBLIC_RELEASE.json` record the current public file
+snapshot. They exclude runtime caches and self-referential manifest files.

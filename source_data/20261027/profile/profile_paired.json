@@ -1,0 +1,28 @@
+[
+  {
+    "CI": [
+      -0.051493269706206234,
+      0.051493269706206234
+    ],
+    "N_files": 96,
+    "alpha": 0.025,
+    "difference_nonce_minus_GCH": 0.0,
+    "left_only_failures": 0,
+    "read_pairs": 192,
+    "right_only_failures": 0,
+    "same_users_across_budgets_no_pooled_independence": true
+  },
+  {
+    "CI": [
+      -0.051493269706206234,
+      0.051493269706206234
+    ],
+    "N_files": 96,
+    "alpha": 0.025,
+    "difference_nonce_minus_GCH": 0.0,
+    "left_only_failures": 0,
+    "read_pairs": 315,
+    "right_only_failures": 0,
+    "same_users_across_budgets_no_pooled_independence": true
+  }
+]

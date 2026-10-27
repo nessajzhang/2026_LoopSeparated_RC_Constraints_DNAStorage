@@ -35,3 +35,24 @@ smc_regime_grid_fast
 !figures/
 !figures/source_data/
 !figures/source_data/*.json
+
+# Current computational source tables, never author/review documents.
+!source_data/
+!source_data/**/*.csv
+!source_data/**/*.json
+!reproducibility/profiles/**/fixtures/*.csv
+
+# Local execution state and credentials.
+.hypothesis/
+.pytest_cache/
+.ruff_cache/
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.doc
+*.docx
+*.ppt
+*.pptx

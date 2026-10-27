@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "phase": "P3_FORMAL_V2_FROZEN",
+  "profile": "dt4dds_v1.0.0_iSeq100_sequencing_only",
+  "methods": ["two_bit", "gc_h_nonce", "short_core", "nonce"],
+  "protocol": {
+    "n": 150, "m": 7, "k": 3, "rs_n": 63, "rs_k": 55,
+    "payload_bytes": 22, "nonce_nt": 4, "nonce_budget": 64,
+    "fallback_to_core": true, "address_radius": 2, "boundary_slack": 3,
+    "repair_edit_radius": 1, "repair_candidate_budget": 2500,
+    "cluster_read_cap": 20, "primer_nt": 0
+  },
+  "interface_smoke": {
+    "seed": 20261023903,
+    "file_id": 0,
+    "cells": [
+      {"method": "two_bit", "mode": "noisy", "read_pairs": 192},
+      {"method": "nonce", "mode": "noisy", "read_pairs": 315}
+    ],
+    "excluded_from_formal_intervals": true
+  },
+  "formal": {
+    "seeds": [20261023801, 20261023802, 20261023803],
+    "files_per_seed": 32,
+    "read_pair_budgets": [192, 315],
+    "mode": "noisy",
+    "independent_source_calls_not_nested": true,
+    "planned_file_method_budget_cells": 768,
+    "independent_user_files_per_method_budget": 96,
+    "paired_difference": "nonce-minus-gc_h_nonce file failure",
+    "paired_comparison_family_size": 2,
+    "paired_family_alpha": 0.05
+  },
+  "physical": {
+    "forward_primer": "AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT",
+    "reverse_primer": "CAAGCAGAAGACGGCATACGAGATCGTGATGTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT",
+    "copies_per_sent_body": 512,
+    "constraint_scope": "body_only",
+    "physical_template_nt": 272,
+    "receiver_extra_trim_nt": 0,
+    "primary_mate": "R1",
+    "R2_retained_and_costed_not_received": true
+  },
+  "limits": {
+    "max_initial_molecules_per_cell": 32256,
+    "max_read_pairs_per_cell": 315,
+    "profile_wall_seconds": 60,
+    "profile_rss_watchdog_mib": 800,
+    "receiver_timeout_seconds": 60,
+    "external_profile_jobs": 1,
+    "internal_multiprocessing": false,
+    "internal_threads": 1
+  },
+  "source": {
+    "version": "1.0.0",
+    "paper_doi": "10.1038/s41467-023-41729-1",
+    "archive_doi": "10.5281/zenodo.8329043",
+    "archive_sha256": "142aa97f9d6328b831a5569bbed48b0552eccd5cbc7f096c693c88db24643aa0",
+    "iseq100_yaml_sha256": "4cc87cf4244857f25f1b7544a03a9d61cae55913fe419d50b69ad7dc3f3389f9",
+    "expected_source_file_count": 54
+  },
+  "failure_policy": {
+    "redraw_user": false, "automatic_retry": false,
+    "existing_output": "REFUSE_INCLUDING_PARTIAL_OR_FAILED_COMPLETED_CELLS",
+    "profile_failure_or_zero_reads": "RETAIN_AND_SCORE_FAILURE_NO_RETRY",
+    "source_count_invariant_failure": "SEAL_CURRENT_CELL_AND_HALT_INCOMPLETE",
+    "unconfirmed_process_cleanup": "HALT_NO_NEW_RECEIVER_OR_PROFILE"
+  },
+  "lineage": {
+    "read_origin": null, "true_edit_script": null, "assignment_accuracy": null,
+    "reason": "NON_EVALUABLE_NO_LINEAGE_CERTIFICATE"
+  }
+}

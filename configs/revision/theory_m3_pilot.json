@@ -1,0 +1,21 @@
+{
+  "schema": "theory-local-pilot-v1",
+  "q": 4,
+  "m": 3,
+  "domain": "all 64 independent window bits",
+  "cpu_limit": 1,
+  "memory_limit_bytes": 4294967296,
+  "memory_guard_bytes": 3221225472,
+  "seconds": 30,
+  "max_nodes": 100000,
+  "exponent": 4,
+  "vector_steps": 8,
+  "prune_threshold": "2253/250",
+  "exploration_seed": 20261023,
+  "exploration_restarts": 8,
+  "exploration_steps_each": 256,
+  "checkpoint_recovery_additional_nodes": 100,
+  "paid_compute_authorized": false,
+  "resource_policy": "Existing local CPU only; no metered or remote job; each native run <=120 seconds and one CPU; keep full frontier and all failed artifacts",
+  "acceptance": "Standalone exact checker accepts recursive full-root coverage, incumbent and every retained upper proof; evidence grade comes from checked global gap, not node count"
+}
